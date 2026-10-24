@@ -1,0 +1,970 @@
+<title>PLAYMAX — Arcade & Boxing Machines | Uzbekistan, Afghanistan</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="PLAYMAX sells and rents boxing machines, prize claws, kids playgrounds, VR and vending machines with delivery and installation across Uzbekistan, Afghanistan and Central Asia. Боксёрские и игровые автоматы. Boks va o‘yin avtomatlari.">
+<meta name="keywords" content="boxing machine, arcade machines, prize claw, kids playground, VR, vending, Uzbekistan, Afghanistan, Tashkent, Kabul, боксёрский автомат, игровые автоматы, boks avtomati, PLAYMAX">
+<meta name="theme-color" content="#1F5BD8">
+<link rel="icon" type="image/png" href="assets/logo-circle.png">
+<link rel="apple-touch-icon" href="assets/logo-circle.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PLAYMAX">
+<meta property="og:title" content="PLAYMAX — Arcade & Boxing Machines">
+<meta property="og:description" content="Boxing machines, prize claws, kids playgrounds, VR and vending — sale, rental, delivery and installation in Uzbekistan, Afghanistan and Central Asia.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PLAYMAX","description":"Arcade, boxing and family-entertainment machines: sale, rental, delivery and installation.","telephone":"+93 77 990 1111","email":"playmax.uzb@gmail.com","areaServed":["Uzbekistan","Afghanistan","Tajikistan","Kyrgyzstan","Kazakhstan","Turkmenistan"],"sameAs":["https://www.instagram.com/playmax.af/","https://www.facebook.com/profile.php?id=61595843930158","https://www.tiktok.com/@playmax.uz.af"]}</script>
+<meta name="claude:viewport-fit-sides" content="cover">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=Manrope:wght@500;600;700;800&family=Vazirmatn:wght@500;700;800&display=swap">
+<style>
+/* Layout: a bright showroom — cream floor, brand-color stages, navy type; arcade push-buttons as the signature control. Single light look by design. */
+:root{
+  --ink:#0B2A6F; --ink-2:#3A4C7A; --muted:#5A6A92;
+  --cream:#FFF8EE; --paper:#FFFFFF; --line:rgba(11,42,111,.10); --line-2:rgba(11,42,111,.18);
+  --blue:#1F5BD8; --blue-d:#1543A8; --sky:#22B0F0; --sky-d:#0E86C0;
+  --red:#E8352B; --red-d:#B5221A; --pink:#FF4F8B; --pink-d:#D0336B;
+  --gold:#FFC233; --gold-d:#D99A00; --orange:#FF8A1F; --orange-d:#D06608; --green:#1E9E52;
+  --tint-sky:#E4F4FE; --tint-pink:#FFE8F0; --tint-gold:#FFF3D6; --tint-orange:#FFEEDD;
+  --display:'Unbounded','Vazirmatn',system-ui,sans-serif; --body:'Manrope','Vazirmatn',system-ui,sans-serif;
+  --r-lg:28px; --r-md:20px; --r-sm:14px;
+  --shadow:0 18px 44px -18px rgba(11,42,111,.28);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--cream);color:var(--ink)}
+body{font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+[dir=rtl] body{font-family:'Vazirmatn',var(--body)}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3{font-family:'Vazirmatn',var(--display);font-weight:800;letter-spacing:0}
+p{margin:0}
+a{color:var(--blue)}
+button,input,select,textarea{font:inherit;color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:10px}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font:800 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* Arcade push-buttons */
+.btn{--b:var(--red);--bd:var(--red-d);--fg:#fff;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border:0;border-radius:16px;background:var(--b);color:var(--fg);font-weight:800;font-size:15px;text-decoration:none;cursor:pointer;box-shadow:0 5px 0 var(--bd),0 14px 26px -12px var(--b);transform:translateY(0);transition:transform .12s ease,box-shadow .12s ease,filter .2s;white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--bd),0 6px 12px -8px var(--b)}
+.btn.blue{--b:var(--blue);--bd:var(--blue-d)}
+.btn.sky{--b:var(--sky);--bd:var(--sky-d)}
+.btn.gold{--b:var(--gold);--bd:var(--gold-d);--fg:var(--ink)}
+.btn.pink{--b:var(--pink);--bd:var(--pink-d)}
+.btn.ghost{--b:var(--paper);--bd:rgba(11,42,111,.16);--fg:var(--ink);box-shadow:0 5px 0 var(--bd),0 12px 24px -16px rgba(11,42,111,.4);outline:1.5px solid var(--line-2);outline-offset:-1.5px}
+.btn.sm{min-height:42px;padding:0 16px;border-radius:13px;font-size:14px}
+.btn.block{width:100%}
+.btn svg{flex:none}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--paper);font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s,color .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed=true],.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.icon-btn{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line-2);background:var(--paper);cursor:pointer;position:relative}
+.badge{position:absolute;top:-4px;inset-inline-end:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:var(--red);color:#fff;font:800 11px/20px var(--body);text-align:center}
+
+/* Header */
+/* top strip: pure decoration, no text */
+.annc{height:10px;background:linear-gradient(90deg,var(--blue) 0 16.66%,var(--sky) 0 33.33%,var(--pink) 0 50%,var(--red) 0 66.66%,var(--orange) 0 83.33%,var(--gold) 0);position:relative;overflow:hidden}
+.annc::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.65) 50%,transparent 70%);background-size:40% 100%;background-repeat:no-repeat;animation:annc 5.5s ease-in-out infinite}
+@keyframes annc{0%{background-position:-60% 0}60%,100%{background-position:160% 0}}
+/* language switcher: flags + codes only */
+.langsw{position:relative}
+.langbtn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 12px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--paper);font:800 13px var(--body);letter-spacing:.06em;cursor:pointer}
+.langbtn svg,.langmenu svg{width:24px;height:16px;border-radius:3px;box-shadow:0 0 0 1px rgba(11,42,111,.14);flex:none;display:block}
+.langmenu{position:absolute;top:calc(100% + 8px);inset-inline-end:0;background:var(--paper);border-radius:18px;padding:6px;box-shadow:var(--shadow);display:grid;gap:2px;z-index:70;min-width:120px}
+.langmenu button{display:flex;align-items:center;gap:10px;border:0;background:none;padding:10px 12px;border-radius:12px;font:800 14px var(--body);letter-spacing:.06em;cursor:pointer;color:var(--ink)}
+.langmenu button:hover{background:var(--cream)}
+.langmenu button[aria-current=true]{background:var(--ink);color:#fff}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:rgba(255,248,238,.96)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,248,238,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:18px;min-height:74px}
+.logo{display:flex;align-items:center;flex:none;cursor:pointer;border:0;background:none;padding:0}
+.logo img{height:34px;width:auto}
+nav.main{display:flex;gap:4px;flex:1;justify-content:center;flex-wrap:wrap}
+nav.main button{border:0;background:none;padding:10px 12px;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+nav.main button:hover{background:rgba(11,42,111,.06)}
+nav.main button[aria-current=page]{background:var(--ink);color:#fff}
+.top-actions{display:flex;gap:10px;align-items:center;flex:none}
+.acct{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 14px 0 6px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--paper);font-weight:800;font-size:14px;cursor:pointer}
+.acct .av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;display:grid;place-items:center;font:800 13px var(--display)}
+.menu-btn{display:none}
+@media (max-width:640px){.langbtn{padding:0 10px}.top-actions{gap:6px}}
+@media (max-width:480px){header.top .wrap{gap:8px;min-height:64px}.logo img{height:26px}.top-actions{gap:5px}.top-actions .icon-btn{width:40px;height:40px}.langbtn{padding:0 8px;min-height:40px}.langbtn span{display:none}.acct{min-height:40px;padding:0 4px}.acct .av{width:30px;height:30px}.hcard.whole .glow,.hcard.show::after{max-width:100%}}
+.hcard{contain:paint}
+@media (max-width:360px){header.top .wrap{gap:4px;padding-inline:10px}.logo img{height:22px}.top-actions{gap:3px}.top-actions .icon-btn{width:36px;height:36px}.langbtn{padding:0 6px;min-height:36px}.acct{min-height:36px;padding:0 2px}}
+@media (max-width:1080px){
+  nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;padding:10px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  nav.main.open{display:flex}
+  nav.main button{justify-content:flex-start;padding:14px}
+  .menu-btn{display:grid}
+  .acct span.nm{display:none}
+}
+
+/* Hero showroom */
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-10% -10% 0;background:radial-gradient(34% 40% at 12% 18%,rgba(34,176,240,.22),transparent 70%),radial-gradient(30% 36% at 90% 10%,rgba(255,79,139,.18),transparent 70%),radial-gradient(40% 30% at 70% 100%,rgba(255,194,51,.34),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:28px;align-items:center;padding-block:48px 36px}
+.hero h1{font-size:clamp(36px,5.2vw,68px);font-weight:900;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--red);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.16em;background:var(--gold);border-radius:4px;z-index:-1}
+.hero p.lead{margin-top:18px;font-size:18px;color:var(--ink-2);max-width:520px}
+.kicker{display:inline-flex;align-items:center;gap:10px;background:var(--paper);border-radius:999px;padding:6px 14px 6px 6px;font-weight:800;font-size:13px;box-shadow:0 8px 20px -10px rgba(11,42,111,.3)}
+.kicker b{background:var(--gold);border-radius:999px;padding:3px 10px;font-size:11px;letter-spacing:.08em}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.facts{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px}
+.facts div strong{display:block;font:800 26px/1 var(--display)}
+.facts div span{font-size:13px;font-weight:700;color:var(--muted)}
+.showroom{position:relative;aspect-ratio:1.08/1;width:100%;max-width:100%}
+.showroom .wall{position:absolute;inset:4% 2% 26%;border-radius:46% 46% 26px 26px/30% 30% 26px 26px;background:linear-gradient(180deg,#FFFFFF,#FFF3E2);box-shadow:inset 0 0 0 2px rgba(11,42,111,.06)}
+.alcove{position:absolute;bottom:26%;border-radius:999px 999px 18px 18px}
+.alcove::after{content:"";position:absolute;left:10%;right:10%;top:0;height:70%;background:radial-gradient(50% 60% at 50% 0%,rgba(255,255,255,.95),transparent 70%)}
+.floor{position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(180deg,#FFFDF8,#FFE9C4);border-radius:0 0 30px 30px;overflow:hidden}
+.floor::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(11,42,111,.05) 0 1px,transparent 1px 60px);transform:perspective(300px) rotateX(55deg);transform-origin:50% 0}
+.mach{position:absolute;bottom:14%;cursor:pointer;background:none;border:0;padding:0;-webkit-box-reflect:below 2px linear-gradient(transparent 72%,rgba(255,255,255,.28));transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.mach img{height:100%;width:auto;max-width:none;filter:drop-shadow(0 18px 18px rgba(11,42,111,.22))}
+.mach:hover{transform:translateY(-8px)}
+.pedestal{position:absolute;border-radius:50%}
+.tagc{position:absolute;background:var(--paper);border-radius:16px;padding:10px 14px;box-shadow:var(--shadow);font-weight:800;font-size:13px;cursor:pointer;border:0;text-align:start}
+.tagc small{display:block;font-size:11px;color:var(--red);letter-spacing:.06em}
+.tagc strong{font:800 18px/1.2 var(--display)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.showroom{max-width:620px;margin:0 auto}}
+
+/* Ticker */
+.ticker{background:var(--gold);overflow:hidden;display:flex;border-block:2px solid var(--ink)}
+.ticker .trk{display:flex;flex:none;width:max-content;gap:30px;padding:14px 15px;font:800 20px/1 var(--display);animation:tick 18s linear infinite;animation-play-state:running;white-space:nowrap;will-change:transform}
+.ticker .trk span:nth-child(even){color:var(--red)}
+@keyframes tick{to{transform:translate3d(-50%,0,0)}}
+/* ticker always moves, in every language: layout stays LTR so the loop is seamless; RTL text keeps its own direction and scrolls the other way */
+.ticker{direction:ltr}
+.ticker .trk span{unicode-bidi:isolate}
+[dir=rtl] .ticker .trk span{direction:rtl}
+[dir=rtl] .ticker .trk{animation-name:tickR}
+@keyframes tickR{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+
+/* Sections */
+section.sec{padding-block:72px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head h2{font-size:clamp(28px,3.6vw,44px);font-weight:900;margin-top:10px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.cat-tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:270px;border-radius:var(--r-lg);padding:20px;border:0;text-align:start;cursor:pointer;overflow:hidden;background:var(--t);color:var(--ink);transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}
+.cat-tile:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.cat-tile h3{font-size:19px;font-weight:800;max-width:70%}
+.cat-tile .cnt{font-weight:800;font-size:13px;color:var(--c)}
+.cat-tile .img{position:absolute;inset-inline-end:-6%;bottom:8%;height:62%;width:62%;display:flex;align-items:flex-end;justify-content:center}
+.cat-tile .img img{max-height:100%;max-width:100%;object-fit:contain;filter:drop-shadow(0 14px 14px rgba(11,42,111,.18));transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.cat-tile .img img.rph{border-radius:16px}
+.cat-tile:hover .img img{transform:scale(1.07) rotate(-2deg)}
+.cat-tile .go{width:42px;height:42px;border-radius:50%;background:var(--paper);display:grid;place-items:center;color:var(--c);position:relative;z-index:1}
+.cat-tile.big{grid-column:span 2;min-height:300px}
+@media (max-width:560px){.cat-tile.big{grid-column:auto}}
+
+/* Product card */
+.p-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.pcard{display:flex;flex-direction:column;background:var(--paper);border-radius:var(--r-lg);padding:12px;box-shadow:0 1px 0 var(--line);transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;cursor:pointer;position:relative}
+.pcard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.pcard .stage{position:relative;height:250px;border-radius:20px;background:radial-gradient(70% 60% at 50% 30%,#FFFFFF,var(--t));display:flex;align-items:flex-end;justify-content:center;overflow:hidden;padding:14px 14px 22px}
+.pcard .stage::after{content:"";position:absolute;bottom:14px;left:22%;right:22%;height:16px;border-radius:50%;background:rgba(11,42,111,.14);filter:blur(4px)}
+.pcard .stage img{position:relative;z-index:1;max-height:100%;max-width:100%;object-fit:contain;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.rph{border-radius:14px}
+.pcard:hover .stage img{transform:scale(1.06)}
+.pcard .flags{position:absolute;top:10px;inset-inline-start:10px;display:flex;gap:6px;z-index:2}
+.flag{background:rgba(255,255,255,.92);border-radius:999px;padding:4px 9px;font-size:11px;font-weight:800}
+.pcard .meta{padding:14px 6px 4px;display:flex;flex-direction:column;gap:4px;flex:1}
+.pcard .model{font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--c,var(--red))}
+.pcard .name{font:800 17px/1.2 var(--display)}
+.pcard .spec{font-size:13px;color:var(--muted);font-weight:600}
+.pcard .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:12px;gap:8px}
+.price{font:800 22px/1 var(--display)}
+.price small{font:700 11px var(--body);color:var(--muted);display:block;margin-top:4px}
+
+/* Category page */
+.band{background:var(--t);padding-block:36px 26px}
+.crumb{display:flex;gap:8px;align-items:center;font-weight:700;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.crumb button{border:0;background:none;padding:0;color:var(--blue);font-weight:800;cursor:pointer}
+.band h1{font-size:clamp(30px,4.4vw,54px);font-weight:900;margin-top:12px}
+.scroller{display:flex;gap:8px;overflow-x:auto;padding-block:16px 4px;scrollbar-width:thin}
+.toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:22px}
+.field{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:800}
+.input,select.input,textarea.input{width:100%;min-height:50px;border-radius:14px;border:1.5px solid var(--line-2);background:var(--paper);padding:0 14px;font-weight:600;font-size:15px;color:var(--ink)}
+textarea.input{padding:12px 14px;min-height:96px;resize:vertical}
+.input:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 4px rgba(34,176,240,.2)}
+
+/* Product page */
+.pp{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:36px;align-items:start;padding-block:28px 60px}
+@media (max-width:960px){.pp{grid-template-columns:1fr}}
+.media{position:sticky;top:96px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:960px){.media{position:static}}
+.modes{display:flex;gap:6px;background:var(--paper);padding:5px;border-radius:16px;align-self:flex-start;box-shadow:0 1px 0 var(--line)}
+.modes button{border:0;background:none;min-height:42px;padding:0 16px;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.modes button[aria-selected=true]{background:var(--ink);color:#fff}
+.viewer{position:relative;height:min(620px,72vh);min-height:420px;border-radius:32px;background:radial-gradient(70% 60% at 50% 35%,#FFFFFF,var(--t));overflow:hidden;display:flex;align-items:flex-end;justify-content:center;padding:30px 30px 56px}
+.viewer .floorshadow{position:absolute;bottom:38px;left:28%;right:28%;height:26px;border-radius:50%;background:rgba(11,42,111,.18);filter:blur(6px)}
+.viewer .pedestal{position:absolute;bottom:26px;left:50%;width:min(320px,60%);height:44px;transform:translateX(-50%);border-radius:50%;background:var(--paper);box-shadow:0 10px 0 rgba(11,42,111,.08)}
+.viewer img.main{position:relative;z-index:1;max-height:100%;max-width:100%;object-fit:contain;filter:drop-shadow(0 24px 26px rgba(11,42,111,.24));transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .3s}
+.viewer img.main.rph{filter:drop-shadow(0 18px 22px rgba(11,42,111,.18))}
+.viewer.v3dwrap{padding:0;display:block;cursor:grab;background:linear-gradient(180deg,#EAF6FF,#FFF6EA)}
+.viewer.v3dwrap:active{cursor:grabbing}
+.v3d{position:absolute;inset:0}
+.v3d canvas{display:block;width:100%!important;height:100%!important;touch-action:none}
+.v3dload{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:14px;font-weight:800;color:var(--ink-2);z-index:2;text-align:center;padding:20px}
+.v3dload .sp{width:44px;height:44px;border-radius:50%;border:4px solid rgba(11,42,111,.12);border-top-color:var(--red);animation:spin .9s linear infinite;justify-self:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.v3dbar{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:3;display:flex;gap:4px;background:rgba(255,255,255,.92);padding:5px;border-radius:16px;box-shadow:0 8px 24px -10px rgba(11,42,111,.35);max-width:calc(100% - 24px);overflow-x:auto}
+.v3dbar button{border:0;background:none;min-height:38px;padding:0 12px;border-radius:11px;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;color:var(--ink)}
+.v3dbar button[aria-pressed=true]{background:var(--ink);color:#fff}
+.v3dtools{display:flex;gap:8px;flex-wrap:wrap}
+.dimgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.dimgrid div{background:var(--paper);border-radius:16px;padding:12px 14px;box-shadow:0 1px 0 var(--line)}
+.dimgrid small{display:block;font-size:12px;font-weight:800;color:var(--muted)}
+.dimgrid b{font:800 20px var(--display)}
+@media (max-width:560px){.dimgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.viewer.crop{cursor:zoom-in}
+.viewer .zoom-hint,.viewer .hint{position:absolute;top:16px;inset-inline-end:16px;z-index:3;background:rgba(255,255,255,.92);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:800;display:flex;gap:8px;align-items:center;border:0;cursor:pointer}
+.viewer .vlabel{position:absolute;top:16px;inset-inline-start:16px;z-index:3;background:var(--ink);color:#fff;border-radius:999px;padding:8px 14px;font-size:12px;font-weight:800;letter-spacing:.06em}
+.spinbox{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:30px 30px 60px;cursor:grab;touch-action:pan-y}
+.spinbox:active{cursor:grabbing}
+.spinbox img{max-height:100%;max-width:100%;object-fit:contain;will-change:transform}
+.spin-ring{position:absolute;bottom:22px;left:50%;width:min(360px,70%);height:56px;transform:translateX(-50%);border-radius:50%;border:2px dashed var(--c,var(--sky))}
+.thumbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.thumb{height:92px;border-radius:16px;background:var(--paper);border:2px solid transparent;overflow:hidden;cursor:pointer;padding:0;position:relative;display:grid;place-items:center}
+.thumb[aria-pressed=true]{border-color:var(--ink)}
+.thumb img{height:84px;width:100%;object-fit:contain}
+.thumb span{position:absolute;bottom:6px;inset-inline-start:6px;background:rgba(255,255,255,.92);border-radius:8px;padding:2px 7px;font-size:11px;font-weight:800}
+.sizebox{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;gap:5%;padding:40px 40px 52px}
+.sizebox .mwrap{position:relative;height:100%;display:flex;align-items:flex-end}
+.sizebox .mwrap img{height:100%;width:auto;max-width:none;object-fit:contain}
+.dim{position:absolute;font:800 13px var(--display);color:var(--ink);white-space:nowrap}
+.dim-v{top:0;bottom:0;inset-inline-start:-34px;width:2px;background:var(--ink)}
+.dim-v::before,.dim-v::after{content:"";position:absolute;left:-6px;width:14px;height:2px;background:var(--ink)}
+.dim-v::before{top:0}.dim-v::after{bottom:0}
+.dim-v b{position:absolute;top:50%;left:-12px;transform:translate(-100%,-50%) rotate(-90deg);transform-origin:right center;background:var(--gold);padding:4px 10px;border-radius:999px;font-weight:800}
+.person{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;font-size:12px;font-weight:800;color:var(--muted)}
+.person svg{fill:rgba(11,42,111,.22)}
+.info h1{font-size:clamp(28px,3.4vw,44px);font-weight:900;margin-top:8px}
+.info .lead{margin-top:14px;font-size:17px;color:var(--ink-2)}
+.pricebar{display:flex;align-items:flex-end;gap:14px;margin-top:20px;flex-wrap:wrap}
+.pricebar .price{font-size:36px}
+.panel{background:var(--paper);border-radius:var(--r-md);padding:18px;box-shadow:0 1px 0 var(--line)}
+.swatches{display:flex;gap:14px;flex-wrap:wrap}
+.sw{display:flex;flex-direction:column;align-items:center;gap:6px;border:0;background:none;cursor:pointer;font-size:12px;font-weight:800;min-width:56px;padding:0}
+.sw i{width:46px;height:46px;border-radius:50%;background:var(--h);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12),0 0 0 3px var(--paper),0 0 0 5px transparent;transition:box-shadow .2s, transform .2s}
+.sw[aria-pressed=true] i{box-shadow:inset 0 0 0 1px rgba(0,0,0,.12),0 0 0 3px var(--paper),0 0 0 5px var(--ink);transform:scale(1.06)}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line-2);border-radius:14px;background:var(--paper)}
+.qty button{width:46px;height:48px;border:0;background:none;font-size:20px;font-weight:800;cursor:pointer}
+.qty span{min-width:34px;text-align:center;font-weight:800}
+.specs{width:100%;border-collapse:collapse;font-size:15px}
+.specs td{padding:12px 4px;border-bottom:1px solid var(--line)}
+.specs td:first-child{color:var(--muted);font-weight:700;width:42%}
+.specs td:last-child{font-weight:800}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:90;background:rgba(255,248,238,.97);display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in}
+.lightbox.zoomed{cursor:zoom-out}
+.lightbox img{max-height:88vh;max-width:92vw;object-fit:contain;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.lightbox .close{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));inset-inline-end:max(16px,env(safe-area-inset-right,0px))}
+.lightbox .lbhint{position:absolute;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:800}
+
+/* Studio */
+.studio{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px;align-items:center}
+@media (max-width:900px){.studio{grid-template-columns:1fr}}
+.compare{position:relative;height:min(640px,76vh);min-height:440px;border-radius:32px;background:radial-gradient(70% 60% at 50% 35%,#FFFFFF,var(--glow,#FFE6E3));overflow:hidden;transition:background .5s;user-select:none;touch-action:pan-y}
+.compare .layer{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:30px 30px 60px}
+.compare .layer img{max-height:100%;max-width:100%;object-fit:contain;filter:drop-shadow(0 24px 26px rgba(11,42,111,.24))}
+.compare .after{clip-path:inset(0 0 0 var(--cut,50%))}
+.compare .handle{position:absolute;top:0;bottom:0;left:var(--cut,50%);width:3px;background:var(--ink);transform:translateX(-50%);z-index:3}
+.compare .handle button{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:var(--paper);border:3px solid var(--ink);cursor:ew-resize;display:grid;place-items:center}
+.compare .lb{position:absolute;top:16px;z-index:3;background:var(--paper);border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800}
+.mpick{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;max-height:300px;overflow-y:auto;padding:2px}
+.mpick button{height:112px;border-radius:18px;border:2px solid transparent;background:var(--paper);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:8px;gap:4px;font-size:12px;font-weight:800}
+.mpick button img{height:70px;width:auto;max-width:100%;object-fit:contain}
+.mpick button[aria-pressed=true]{border-color:var(--ink)}
+
+/* Chat */
+.chat{display:grid;grid-template-columns:300px minmax(0,1fr);gap:20px;padding-block:28px 40px;min-height:calc(100vh - 200px)}
+@media (max-width:860px){.chat{grid-template-columns:1fr}.chat aside{display:none}}
+.chat aside{display:flex;flex-direction:column;gap:12px}
+.chat-main{background:var(--paper);border-radius:32px;display:flex;flex-direction:column;min-height:620px;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+.chat-head{display:flex;gap:12px;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line)}
+.ai-av{width:48px;height:48px;border-radius:50%;background:conic-gradient(var(--blue),var(--sky),var(--pink),var(--red),var(--orange),var(--gold),var(--blue));display:grid;place-items:center;flex:none}
+.msgs{flex:1;overflow-y:auto;padding:22px;display:flex;flex-direction:column;gap:14px;max-height:62vh}
+.msg{max-width:min(78%,620px);padding:14px 18px;border-radius:22px;font-weight:600;line-height:1.6;white-space:pre-line;animation:pop .35s cubic-bezier(.22,1,.36,1)}
+.msg.me{align-self:flex-end;background:var(--ink);color:#fff;border-end-end-radius:6px}
+.msg.ai{align-self:flex-start;background:#F3F6FC;border-end-start-radius:6px}
+.msg .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:12px;white-space:normal}
+.mini{display:flex;flex-direction:column;gap:4px;background:var(--paper);border-radius:16px;padding:8px;border:0;cursor:pointer;text-align:start;box-shadow:0 6px 14px -8px rgba(11,42,111,.4)}
+.mini .im{height:96px;border-radius:12px;background:var(--tint-sky);display:grid;place-items:center;overflow:hidden}
+.mini .im img{max-height:88px;max-width:90%;object-fit:contain}
+
+.mini b{font-size:13px}
+.mini span{font:800 13px var(--display)}
+.typing{display:inline-flex;gap:5px}
+.typing i{width:8px;height:8px;border-radius:50%;background:var(--muted);animation:dot 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.composer{display:flex;gap:10px;padding:14px;border-top:1px solid var(--line);align-items:center}
+.composer input{flex:1;min-width:0}
+.sugg{display:flex;gap:8px;flex-wrap:wrap;padding:0 22px 14px}
+
+/* Calc */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:900px){.calc{grid-template-columns:1fr}}
+.range{display:flex;flex-direction:column;gap:8px}
+.range .top{display:flex;justify-content:space-between;font-weight:800;font-size:14px}
+.range input{accent-color:var(--blue);width:100%}
+.result{border-radius:32px;padding:28px;background:linear-gradient(160deg,var(--gold),var(--orange));color:var(--ink)}
+.result .big{font:900 clamp(40px,6vw,64px)/1 var(--display)}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}
+.kpis div{background:rgba(255,255,255,.6);border-radius:16px;padding:12px}
+.kpis small{display:block;font-size:12px;font-weight:800;opacity:.8}
+.kpis b{font:800 18px var(--display)}
+.chart{background:rgba(255,255,255,.75);border-radius:20px;margin-top:16px;padding:12px}
+.chart svg{width:100%;height:auto;display:block}
+
+/* Cart / checkout */
+.two{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px;align-items:start;padding-block:28px 60px}
+@media (max-width:960px){.two{grid-template-columns:1fr}}
+.line{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;background:var(--paper);border-radius:var(--r-lg);padding:14px;box-shadow:0 1px 0 var(--line)}
+@media (max-width:520px){.line{grid-template-columns:90px minmax(0,1fr)}}
+.line .im{height:150px;border-radius:18px;background:radial-gradient(70% 60% at 50% 30%,#fff,var(--t));display:grid;place-items:center;overflow:hidden}
+.line .im img{max-height:136px;max-width:90%;object-fit:contain}
+
+.sum{display:flex;flex-direction:column;gap:12px;position:sticky;top:96px}
+.sumrow{display:flex;justify-content:space-between;font-weight:700}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:12px}
+.total b{font:900 30px var(--display)}
+.pay{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.payopt{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;border:2px solid var(--line-2);background:var(--paper);cursor:pointer;text-align:start}
+.payopt[aria-checked=true]{border-color:var(--ink);background:#F3F6FC}
+.paynote{display:flex;gap:10px;align-items:flex-start;border-radius:14px;padding:12px 14px;font-weight:700;font-size:14px}
+.paynote.dom{background:#E3F7EA;color:#11683A}.paynote.abr{background:var(--tint-sky);color:var(--blue-d)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.split div{background:var(--cream);border-radius:14px;padding:12px 14px}
+.split small{display:block;font-size:12px;font-weight:800;color:var(--muted)}
+.split b{font:800 20px var(--display)}
+.newband{border-radius:36px;padding:clamp(22px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:center;background:linear-gradient(135deg,#EAF6FF,#FFF3E2 60%,#FFE8F0);overflow:hidden}
+@media (max-width:860px){.newband{grid-template-columns:1fr}}
+.newband .duo{display:flex;align-items:flex-end;justify-content:center;gap:4%;height:420px}
+.newband .duo img{height:100%;width:auto;max-width:48%;object-fit:contain;filter:drop-shadow(0 22px 22px rgba(11,42,111,.22));transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.newband .duo button{border:0;background:none;padding:0;height:100%;cursor:pointer;display:flex;align-items:flex-end;max-width:48%}
+.newband .duo button img{max-width:100%}
+.newband .duo button:hover img{transform:translateY(-8px)}
+.visa{background:var(--blue);color:#fff;font:italic 900 14px var(--body);border-radius:7px;padding:5px 9px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.grid2{grid-template-columns:1fr}}
+.full{grid-column:1/-1}
+.toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#F3F6FC;border-radius:14px;padding:12px 14px;font-weight:700}
+.switch{position:relative;width:52px;height:32px;border-radius:16px;border:0;background:rgba(11,42,111,.2);cursor:pointer;flex:none;transition:background .2s}
+.switch::after{content:"";position:absolute;top:4px;inset-inline-start:4px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:inset-inline-start .2s}
+.switch[aria-checked=true]{background:var(--green)}
+.switch[aria-checked=true]::after{inset-inline-start:24px}
+
+/* Generic cards */
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--paper);border-radius:var(--r-lg);padding:24px;box-shadow:0 1px 0 var(--line)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;counter-reset:s}
+.step{background:var(--paper);border-radius:var(--r-md);padding:20px;position:relative}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--gold);font:900 16px var(--display);margin-bottom:12px}
+.chan{display:flex;flex-direction:column;gap:12px;border-radius:var(--r-lg);padding:22px;background:var(--paper);box-shadow:0 1px 0 var(--line)}
+.chan .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center}
+.chan .val{font:800 17px var(--display);word-break:break-all;user-select:all}
+.teaser{border-radius:36px;padding:clamp(22px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center;overflow:hidden;position:relative}
+@media (max-width:860px){.teaser{grid-template-columns:1fr}}
+.rates{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.rate{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 16px;font-weight:700}
+.rate b{font:800 15px var(--display);color:var(--gold)}
+
+.pill{display:inline-block;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:800}
+
+/* Footer, sheet, toast */
+footer{background:var(--paper);border-top:4px solid transparent;border-image:linear-gradient(90deg,var(--blue),var(--sky),var(--red),var(--orange),var(--gold)) 1;margin-top:40px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;padding-block:40px}
+footer .col{display:flex;flex-direction:column;gap:8px;font-weight:700}
+footer .col button{border:0;background:none;padding:0;text-align:start;cursor:pointer;font-weight:700;color:var(--ink-2)}
+.sheet-back{position:fixed;inset:0;z-index:80;background:rgba(11,42,111,.35);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.sheet{width:min(520px,100%);background:var(--paper);border-radius:32px;padding:28px;box-shadow:0 30px 80px -20px rgba(11,42,111,.5);animation:pop .4s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden}
+.sheet .logo-c{width:84px;height:84px;border-radius:50%}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(140%);background:var(--ink);color:#fff;border-radius:16px;padding:14px 20px;font-weight:800;z-index:95;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .3s;max-width:calc(100% - 32px);opacity:0;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.empty{text-align:center;padding:60px 20px;display:flex;flex-direction:column;align-items:center;gap:14px}
+#intro-root{position:fixed;inset:0;z-index:100}
+.pmx-video-intro{position:fixed;inset:0;z-index:100;background:#e9f7fb}
+.pmx-video-intro iframe{display:block;width:100%;height:100%;border:0}
+.pmx-video-intro #skipVideoIntro{position:absolute;z-index:2;top:max(16px,env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);inset-inline-end:auto;background:#ffffffdc}
+#intro-cover{position:fixed;inset:0;z-index:9998;background:radial-gradient(60% 50% at 50% 45%,#fff,#FFF3E2);display:grid;place-items:center;transition:opacity .4s}
+#intro-cover img{width:96px;height:96px;border-radius:50%;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.08)}}
+.view-enter{animation:viewIn .45s cubic-bezier(.22,1,.36,1)}
+@keyframes viewIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media (prefers-reduced-motion:reduce){.ticker .trk{animation-duration:30s!important;animation-iteration-count:infinite!important}}
+/* hero carousel (only the picture area moves) */
+.hcar{position:relative;aspect-ratio:1.08/1;width:100%}
+.hslide{position:absolute;inset:0;opacity:0;transform:translateX(18px) scale(.985);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1);pointer-events:none}
+[dir=rtl] .hslide{transform:translateX(-18px) scale(.985)}
+.hslide.on{opacity:1;transform:none;pointer-events:auto}
+.hslide .showroom{position:absolute;inset:0;aspect-ratio:auto;height:100%}
+.hcard{position:absolute;inset:0;border-radius:36px;overflow:hidden;display:flex;flex-direction:column;padding:clamp(18px,3vw,30px)}
+.hcard h3{font:900 clamp(22px,2.6vw,32px)/1.1 var(--display)}
+.hcard p{font-weight:700;margin-top:8px}
+.hcard.show{background:radial-gradient(90% 60% at 50% 78%,#3E8BFF 0,#1F5BD8 45%,#0B2A6F 100%);color:#fff}
+.hcard.show::after{content:"";position:absolute;left:8%;right:8%;bottom:12%;height:16%;background:radial-gradient(50% 50% at 50% 50%,rgba(255,255,255,.28),transparent 70%);pointer-events:none}
+.hcard .pill{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);border-radius:999px;padding:6px 14px;font:800 12px/1 var(--body);letter-spacing:.12em;text-transform:uppercase}
+.hcard.show h3{color:#fff;margin-top:12px}
+.hcard.show .sub{opacity:.85;font-weight:700;margin-top:6px}
+.hcard.show .simg{flex:1;min-height:0;width:100%;object-fit:contain;object-position:center bottom;margin-top:10px;position:relative;z-index:1;filter:drop-shadow(0 18px 22px rgba(0,0,0,.35))}
+.hcard.show .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;position:relative;z-index:2;flex-wrap:wrap}
+.hcard.show .cats{display:flex;gap:6px;flex-wrap:wrap}
+.hcard.show .cats span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 11px;font-size:12px;font-weight:800}
+.hcard.whole{background:linear-gradient(155deg,#12347F 0,#0B2A6F 55%,#081D4E 100%);color:#fff;gap:0}
+.hcard.whole .glow{position:absolute;inset-inline-end:-10%;bottom:4%;width:78%;aspect-ratio:1;background:radial-gradient(closest-side,rgba(255,194,51,.55),rgba(255,138,31,.18) 60%,transparent);pointer-events:none}
+.hcard.whole .wimg{position:absolute;inset-inline-end:3%;bottom:96px;height:calc(100% - 150px);max-width:52%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 22px 24px rgba(0,0,0,.45))}
+.hcard.whole .wtxt{position:relative;z-index:1;max-width:52%;display:flex;flex-direction:column;gap:10px}
+.hcard.whole .big{font:900 clamp(28px,3.6vw,46px)/1.02 var(--display);color:var(--gold)}
+.hcard.whole .wtxt p{font-weight:700;opacity:.92;margin:0}
+.hcard.whole ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:7px}
+.hcard.whole li{display:flex;gap:8px;align-items:center;font-weight:800;font-size:14px}
+.hcard.whole li::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.2 4L19 7' fill='none' stroke='%230B2A6F' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.hcard.whole .seal{position:absolute;top:clamp(14px,2.4vw,26px);inset-inline-end:clamp(14px,2.4vw,26px);z-index:2;width:clamp(74px,9vw,104px);aspect-ratio:1;border-radius:50%;background:var(--gold);color:var(--ink);display:grid;place-items:center;text-align:center;font:900 clamp(10px,1.1vw,13px)/1.1 var(--display);padding:10px;transform:rotate(-10deg);box-shadow:0 0 0 5px rgba(255,194,51,.3),0 14px 26px -10px rgba(0,0,0,.5)}
+.hcard.whole .acts{position:absolute;left:clamp(18px,3vw,30px);right:clamp(18px,3vw,30px);bottom:clamp(18px,3vw,26px);z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hcard.whole .acts .btn{min-height:52px;text-decoration:none}
+@media (max-width:560px){.hcar{aspect-ratio:.92/1}.hcard.whole .seal{display:none}.hcard.show .sub{font-size:14px}.hcard.whole .wtxt{max-width:60%}.hcard.whole ul{display:none}.hcard.whole .wimg{bottom:84px;height:calc(100% - 120px);max-width:48%}.hcard.whole .acts .btn{min-height:46px;padding:0 10px;font-size:14px}.hcard.show .cats{display:none}}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.news{background:var(--paper);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.news .nimg{aspect-ratio:16/10;background:var(--tint-sky)}.news .nimg img{width:100%;height:100%;object-fit:cover}
+.news .nbody{padding:18px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.news .pill{background:var(--tint-gold);color:#8A5A00;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:800}
+.news .pill:empty{display:none}
+.news h3{font-size:20px}.news p{color:var(--ink-2);white-space:pre-line}
+.pdesc{margin-top:14px;color:var(--ink-2);white-space:pre-line;font-weight:600}
+
+/* offers strip */
+.pm-promo{position:relative}
+.pm-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:32px;box-shadow:var(--shadow)}
+.pm-track::-webkit-scrollbar{display:none}
+.pm-track.drag{scroll-snap-type:none;cursor:grabbing}
+.pm-card{flex:0 0 100%;scroll-snap-align:start;min-height:250px;padding:clamp(22px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;color:#fff;position:relative;overflow:hidden}
+.pm-card::after{content:"";position:absolute;inset-inline-end:-6%;top:-30%;width:46%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.12);pointer-events:none}
+.pm-body{position:relative;z-index:1;display:flex;flex-direction:column;gap:12px;align-items:flex-start;max-width:640px}
+.pm-body h3{font:900 clamp(26px,3.4vw,42px)/1.05 var(--display);color:#fff}
+.pm-text{font-size:clamp(15px,1.5vw,18px);font-weight:600;opacity:.95}
+.pm-quote{font:800 clamp(18px,2vw,24px)/1.35 var(--body)}
+.pm-author{font-weight:800;opacity:.9}
+.pm-cta{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 20px;border-radius:14px;border:0;background:#fff;color:var(--ink);font-weight:800;font-size:15px;text-decoration:none;cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.18)}
+.pm-cta svg{width:20px;height:20px}
+.pm-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.pm-art{position:relative;z-index:1;display:grid;place-items:center}
+.pm-ic{font-size:clamp(64px,9vw,120px);line-height:1;filter:drop-shadow(0 12px 18px rgba(0,0,0,.25))}
+.pm-art img{max-height:220px;max-width:320px;border-radius:20px;object-fit:cover}
+.pm-ctl{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:14px}
+.pm-dot{position:relative;width:10px;height:10px;border-radius:5px;border:0;padding:0;background:rgba(11,42,111,.22);cursor:pointer;transition:width .3s,background .3s}
+.pm-dot::before{content:"";position:absolute;inset:-12px -6px}
+.pm-dot.on{width:28px;background:var(--ink)}
+.pm-arrow{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line-2);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;margin:0 6px}
+[dir=rtl] .pm-arrow svg{transform:scaleX(-1)}
+[dir=rtl] .pm-arr{display:inline-block;transform:scaleX(-1)}
+@media (max-width:640px){.pm-card{grid-template-columns:1fr;min-height:300px}.pm-art{position:absolute;inset-inline-end:16px;top:14px;opacity:.9}.pm-ic{font-size:56px}.pm-art img{max-height:90px;max-width:120px}.pm-body{padding-top:56px}}
+.mk-report{display:flex;flex-wrap:wrap;gap:6px}
+.pm-legal{max-width:760px;display:flex;flex-direction:column;gap:10px}.pm-legal h2{font-size:19px;margin-top:10px}.pm-legal p{color:var(--ink-2);font-weight:600;line-height:1.6}.pm-upd{font-size:13px}.pm-contact{font-weight:800!important;color:var(--ink)!important}
+.pm-page{max-width:860px;display:flex;flex-direction:column;gap:18px}.pm-cover{width:100%;max-height:420px;object-fit:contain;background:var(--tint-sky);border-radius:24px}.pm-ptext{white-space:pre-line;font-size:17px;font-weight:600;color:var(--ink-2);line-height:1.7}.pm-gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}.pm-gal img{width:100%;aspect-ratio:1;object-fit:contain;background:var(--tint-sky);border-radius:16px}.pm-page .pm-cta{background:var(--ink);color:#fff}
+.wsale{position:relative;overflow:hidden;background:linear-gradient(155deg,#12347F,#0B2A6F 60%,#081D4E);color:#fff;border-radius:var(--r-lg);padding:26px;display:flex;flex-direction:column;gap:12px;min-height:420px}
+.wsale .glow{position:absolute;inset-inline-end:-20%;top:-10%;width:90%;aspect-ratio:1;background:radial-gradient(closest-side,rgba(255,194,51,.45),transparent);pointer-events:none}
+.wsale img{position:relative;align-self:center;height:210px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 18px 20px rgba(0,0,0,.45))}
+.wsale h3{position:relative;font-size:28px;color:var(--gold)}
+.wsale p{position:relative;font-weight:700;opacity:.92}
+.wsale .pill{position:relative;align-self:flex-start;background:var(--gold);color:var(--ink);border-radius:999px;padding:6px 14px;font:800 12px/1 var(--body);letter-spacing:.12em;text-transform:uppercase}
+.wsale .sendrow{position:relative;margin-top:auto}
+.hdots{position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);display:flex;gap:8px}
+.hdots button{width:10px;height:10px;border-radius:6px;border:0;padding:0;background:rgba(11,42,111,.22);cursor:pointer;transition:width .3s,background .3s}
+.hdots button[aria-current=true]{width:28px;background:var(--ink)}
+.btn.wa{--b:#25D366;--bd:#1DA851}.btn.tg{--b:#229ED9;--bd:#1A7FB0}
+.btn.wa svg path{fill:#fff}.btn.wa svg path:last-child{fill:#25D366}.btn.tg svg circle{fill:#fff}.btn.tg svg path{fill:#229ED9}
+.sendrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.sendrow{grid-template-columns:1fr}}
+/* marketplace */
+.mk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.mk-card{background:var(--paper);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 1px 0 var(--line);display:flex;flex-direction:column}
+.mk-ph{position:relative;height:220px;background:var(--cream);display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.mk-ph img{flex:0 0 100%;height:100%;object-fit:contain;scroll-snap-align:start;background:#fff}
+.mk-ph .cnt{position:absolute;top:10px;inset-inline-end:10px;background:rgba(11,42,111,.8);color:#fff;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:800}
+.mk-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.mk-body h3{font:800 18px/1.2 var(--display)}
+.mk-meta{display:flex;gap:6px;flex-wrap:wrap}
+.mk-meta span{background:var(--cream);border-radius:999px;padding:3px 9px;font-size:12px;font-weight:800}
+.mk-desc{font-size:14px;color:var(--ink-2);font-weight:600;white-space:pre-line}
+.mk-seller{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;font-size:13px;font-weight:800}
+.mk-seller .av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;display:grid;place-items:center;font-size:12px}
+.mk-links{display:flex;gap:8px;flex-wrap:wrap}
+.mk-links a{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border-radius:12px;background:var(--cream);font-weight:800;font-size:13px;color:var(--ink);text-decoration:none}
+.mk-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:640px){.mk-form{grid-template-columns:1fr}}
+.mk-drop{border:2px dashed var(--sky);background:#F2FAFE;border-radius:16px;padding:16px;text-align:center;font-weight:800;cursor:pointer;display:block}
+.mk-prev{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.mk-prev img{width:76px;height:76px;object-fit:cover;border-radius:12px}
+.mk-prev .pv{position:relative}
+.mk-prev .pv button{position:absolute;top:-6px;inset-inline-end:-6px;width:26px;height:26px;border-radius:50%;border:0;background:var(--ink);color:#fff;font-weight:900;cursor:pointer;line-height:1}
+.mk-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.mk-acts .chip{min-height:38px}
+.chip.danger{border-color:#F3B4AE;color:var(--red-d);background:#FFF5F4}
+.mk-ask{margin-top:8px;background:#FFF5F4;border:1px solid #F3B4AE;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:4px}
+.mk-badges{display:flex;gap:6px;flex-wrap:wrap}
+.mk-badge{font-size:11px;font-weight:800;border-radius:999px;padding:3px 9px;background:var(--tint-sky);color:var(--blue)}
+.mk-badge.me{background:#E3F7EA;color:#11683A}.mk-badge.bad{background:#FFE3E1;color:var(--red-d)}
+.mk-welcome{background:linear-gradient(135deg,#FFF3D6,#E4F4FE);border:1px solid rgba(11,42,111,.1);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px;display:flex;flex-direction:column;gap:12px}
+.mk-wtop{display:flex;gap:14px;align-items:center}.mk-wic{font-size:38px;line-height:1}.mk-wtop b{display:block;font:900 20px/1.2 var(--display)}.mk-wtop span{display:block;font-weight:600;color:var(--ink-2);margin-top:4px}
+.mk-welcome ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px}.mk-welcome li{background:#fff;border-radius:14px;padding:10px 12px;font-weight:700;font-size:14px}
+.mk-welcome .chip{align-self:flex-start}
+.mk-admin{background:linear-gradient(135deg,#12347F,#0B2A6F);color:#fff;border-radius:var(--r-lg);padding:18px 20px;margin-bottom:18px;display:flex;flex-direction:column;gap:10px}
+.mk-admin .muted{color:rgba(255,255,255,.8)}
+.mk-admin .bl{display:flex;flex-wrap:wrap;gap:8px}
+.mk-admin .bl span{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border-radius:999px;padding:4px 6px 4px 12px;font-weight:800;font-size:13px}
+.mk-admin .bl button{border:0;border-radius:999px;background:var(--gold);color:var(--ink);font-weight:800;font-size:12px;padding:5px 10px;cursor:pointer}
+.mk-note{border-radius:var(--r-lg);padding:16px 18px;font-weight:700;background:#FFF5F4;border:1px solid #F3B4AE;color:var(--red-d)}
+</style>
+
+<div id="intro-root" hidden></div>
+<div class="annc" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap" style="position:relative">
+    <button class="logo" data-go="home" aria-label="PLAYMAX home"><img src="assets/logo-word.png" alt="PLAYMAX"></button>
+    <nav class="main" id="nav" aria-label="Main"></nav>
+    <div class="top-actions">
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <div class="langsw"><button class="langbtn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Language"></button><div class="langmenu" id="langMenu" role="menu" hidden></div></div>
+      <button class="acct" id="acctBtn" data-go="account"></button>
+      <button class="icon-btn" data-go="cart" aria-label="Bag" id="bagBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12.2H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="badge" id="bagCount" hidden>0</span></button>
+    </div>
+  </div>
+</header>
+<main id="view"></main>
+<footer>
+  <div class="wrap">
+    <div class="col" style="max-width:300px"><img src="assets/logo-word.png" alt="PLAYMAX" style="height:36px;width:auto"><span class="muted">Play your way. Arcade, boxing and family-entertainment machines — sale, rental, delivery and installation.</span></div>
+    <div class="col"><strong>Store</strong><button data-go="store">All machines</button><button data-go="studio">Color studio</button><button data-go="calc">Profit calculator</button></div>
+    <div class="col"><strong>Company</strong><button data-go="about">About us</button><button data-go="market">Marketplace</button><button data-go="maintenance">Machine maintenance</button><button data-go="contact">Contact</button><button data-go="privacy">Privacy &amp; terms</button><span id="footPages" style="display:contents"></span><button id="replay">Replay intro</button></div>
+    <div class="col"><strong>Reach us</strong><a href="mailto:playmax.uzb@gmail.com"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="#EA4335" d="M3 6 12 13 21 6v12H3z"/><path fill="#fff" d="m3 6 9 7 9-7v2l-9 7-9-7z"/></svg> playmax.uzb@gmail.com</a><a href="tel:+93779901111" dir="ltr"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 3H4.8A1.8 1.8 0 0 0 3 4.8C3 13.7 10.3 21 19.2 21a1.8 1.8 0 0 0 1.8-1.8V17l-5-2-1.5 2a14.5 14.5 0 0 1-6.5-6.5l2-1.5-2-5Z"/></svg> +93 77 990 1111</a><a aria-label="Instagram" title="Instagram" href="https://www.instagram.com/playmax.af/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#C13584" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#C13584"/></svg></a><a aria-label="Facebook" title="Facebook" href="https://www.facebook.com/profile.php?id=61595843930158" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.3c0-3 1.8-4.7 4.5-4.7 1.3 0 2.6.2 2.6.2v2.9h-1.5c-1.5 0-2 .9-2 1.9V12H17l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12"/></svg></a><a aria-label="WhatsApp" title="WhatsApp" href="https://wa.me/93779901111" target="_blank" rel="noopener" class="wa-ic"></a><a aria-label="Telegram" title="Telegram" href="https://t.me/+93779901111" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="#229ED9"><path d="m21.5 3.5-3.2 17c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.3L6 16.8l-4.9-1.5c-1.1-.3-1.1-1 .2-1.5L20.3 3c.9-.3 1.6.2 1.2.5z"/></svg></a><span aria-label="TikTok account link pending" title="TikTok — link coming soon"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="#25F4EE" d="M19.6 7.2a6.8 6.8 0 0 1-4.1-2.1V16a5.6 5.6 0 1 1-5-5.6v3a2.6 2.6 0 1 0 2 2.5V2h3a6.1 6.1 0 0 0 4.1 3.6z"/><path fill="#FE2C55" d="M18.1 8.2a7 7 0 0 1-2.6-1.3V16a5.6 5.6 0 1 1-5-5.6v3a2.6 2.6 0 1 0 2 2.5V2h1.6a6.3 6.3 0 0 0 4 3.6z"/></svg></span></div>
+  </div>
+  <div class="wrap" style="padding-block:0 26px;font-size:13px;font-weight:700;color:var(--muted)">© 2026 PLAYMAX. Prices are confirmed on order.</div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div id="overlay"></div>
+
+<script src="core.js" charset="utf-8"></script>
+<script>
+(function(){
+'use strict';
+const {CATS,PRODUCTS,COLORS,CONTACT,I18N,money,esc,store,heightMm,playIntro,INTRO_CSS,colorSrc,nativeColor,FLAG,LANGS,ICONS,orderMessage,waLink,tgLink,copyText,market,compressImage,sellerLinks}=PM;
+// live content from the PLAYMAX Admin app (content.json): cached copy now, fresh copy in the background
+let contentPending=false;
+function onContent(){S.rates=PM.RATES.map(r=>({...r})); if(!S.rates.some(r=>r.country===S.country)) S.country=S.rates[0].country; S.install=PM.SETTINGS.install; S.cart=S.cart.filter(l=>PRODUCTS.some(p=>p.id===l.pid&&!p.deleted)); if(PM.FIREBASE.apiKey&&PM.mk.state.mode!=='shared') PM.mk.init(); const a=document.activeElement; if(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)){contentPending=true; return;} contentPending=false; render(); }
+document.head.insertAdjacentHTML('beforeend','<style>'+PM.GUIDE_CSS+PM.BLOCK_CSS+'</style>');
+PM.watchContent(()=>onContent());
+PM.mk.setActive(()=>typeof S!=='undefined'&&S.route==='market');
+PM.mk.on(()=>{ if(typeof S==='undefined'||S.route!=='market'||S.mkForm||S.mkEdit) return; const y=window.scrollY; render(); window.scrollTo(0,y); });
+setTimeout(()=>PM.mk.init(),0);
+
+let heroTimer=0, mkPhotos=[]; // mkPhotos: [{data}|{ref}] for the post form
+let V3=null, v3tok=0;
+const st=document.createElement('style'); st.textContent=INTRO_CSS; document.head.appendChild(st);
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+
+/* ---------- state ---------- */
+const S={
+  lang:store.get('lang','en'), route:'home', cart:store.get('cart',[]), user:store.get('user',null),
+  orders:store.get('orders',[]), messages:store.get('messages',[]),
+  rates:PM.RATES.map(r=>({...r})), install:PM.SETTINGS.install,
+  content:store.get('content',{headline:null,text:null,annc:null}),
+  country:PM.RATES.some(r=>r.country===store.get('country','Uzbekistan'))?store.get('country','Uzbekistan'):'Uzbekistan', installOn:true, hero:0, mkCat:'all', mkForm:false,
+  pview:{mode:'photos',view:'front',color:null,qty:1,human:true,dims:true,auto:true}, studio:{pid:32,color:2,cut:50}, catSort:'featured',
+  calc:{pid:1,players:30,machines:1,price:1,days:30,costs:150}, acctMode:'register'
+};
+const ov=store.get('prodOverrides',{}); PRODUCTS.forEach(p=>{const o=ov[p.id]; if(o){ if(o.price!=null)p.price=o.price; if(o.visible!=null)p.visible=o.visible; }});
+const save=()=>{store.set('cart',S.cart);store.set('user',S.user);store.set('orders',S.orders);store.set('messages',S.messages);store.set('content',S.content);store.set('country',S.country);store.set('lang',S.lang);
+  const o={}; PRODUCTS.forEach(p=>o[p.id]={price:p.price,visible:p.visible}); store.set('prodOverrides',o);};
+const t=(k)=>(I18N[S.lang]||I18N.en)[k]||I18N.en[k]||k;
+const i18nObserver=new MutationObserver(()=>PM.localizeDOM(document.body,S.lang)); i18nObserver.observe(document.body,{childList:true,subtree:true,characterData:true});
+const cat=(id)=>CATS.find(c=>c.id===id);
+const prod=(id)=>PRODUCTS.find(p=>p.id===+id); const canChooseColor=p=>!!p&&p.cat==='boxing'; S.cart=S.cart.map(l=>canChooseColor(prod(l.pid))?l:{...l,color:null});
+const cname=(c)=>c.name[S.lang]||c.name.en;
+const colName=(i)=>COLORS[i].name[S.lang]||COLORS[i].name.en;
+const rate=()=>S.rates.find(r=>r.country===S.country)||S.rates[S.rates.length-1];
+const visible=()=>PRODUCTS.filter(p=>p.visible);
+
+const ICON={
+  arrow:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  spark:'<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.2 6.3L20 10l-5.8 1.7L12 18l-2.2-6.3L4 10l5.8-1.7z"/></svg>',
+  bag:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12.2H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>',
+  cal:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  rot:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>',
+  zoom:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>',
+  ruler:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 17 17 3l4 4L7 21z"/><path d="M7 13l2 2M10 10l2 2M13 7l2 2"/></svg>',
+  photo:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 8"/></svg>',
+  x:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+  cube:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg>',
+  copy:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>'
+};
+const CAT_DESC={boxing:'A punch-strength game with a big score display that turns passers-by into competitors. Built for malls, parks and entertainment centers.',arcade:'A glass-cabinet prize claw with bright lighting, adjustable payout and room for plush toys or small prizes.',challenge:'A strength or reaction challenge that groups and adults love to repeat.',vr:'A compact VR simulator with headset and built-in games that fits in under one square metre.',tablegames:'A durable table game for cafés, family centers and lounges.',playground:'A complete play system in UV-resistant LLDPE plastic on a steel frame, for indoor or outdoor spaces.',rides:'A family ride that anchors a park or an event space.',inflatable:'Bright inflatable play that sets up fast for events and parks.',archery:'Target and shooting games for safe, competitive fun.',vending:'A smart vending machine that earns around the clock next to your games.',massage:'A paid massage chair for malls, airports and lounges.'};
+
+/* ---------- helpers ---------- */
+let toastT; function toast(m){const el=$('#toast'); el.textContent=PM.translateText(m,S.lang); el.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),2600);}
+function pimg(p,cls='',color){return '<img class="'+(p.photo?'rph ':'')+cls+'" src="'+colorSrc(p,color==null?null:color)+'" alt="'+esc(p.model+' — '+p.name)+'" loading="lazy">';}
+const shipFee=()=>rate().rate;
+const absUrl=(u)=>{try{return new URL(u,location.href).href;}catch(e){return u;}};
+function keySpec(p){const h=heightMm(p); const kg=p.specs.find(s=>/kg/.test(s)); return [h?(h.h>=1000?(h.h/1000).toFixed(2)+' m tall':h.h+' mm tall'):p.specs[0], kg&&!/·/.test(kg)?kg:null].filter(Boolean).join(' · ');}
+function pcard(p){const c=cat(p.cat);
+  return '<article class="pcard" data-go="p:'+p.id+'" style="--t:'+c.tint+';--c:'+c.color+'" tabindex="0" role="link" aria-label="'+esc(p.model+' '+p.name)+'"><div class="stage">'+pimg(p)+'<div class="flags">'+(p.isNew?'<span class="flag" style="background:var(--red);color:#fff">NEW</span>':'')+(p.model3d?'<span class="flag" style="background:var(--ink);color:#fff">3D</span>':'')+(p.colors?'<span class="flag">5 colors</span>':'')+'</div></div><div class="meta"><span class="model">'+esc(p.model)+'</span><span class="name">'+esc(p.name)+'</span><span class="spec">'+esc(keySpec(p))+'</span><div class="row"><span class="price num">'+money(p.price)+'</span><button class="btn sm" data-act="add" data-id="'+p.id+'" aria-label="Add '+esc(p.model)+' to bag">'+ICON.bag+'</button></div></div></article>';}
+function crumb(items){return '<nav class="crumb" aria-label="Breadcrumb">'+items.map((it,i)=>it.go?'<button data-go="'+it.go+'">'+esc(it.label)+'</button>':'<span>'+esc(it.label)+'</span>').join('<span aria-hidden="true">/</span>')+'</nav>';}
+
+/* ---------- router ---------- */
+function go(r,opts){
+  S.route=r; $('#nav').classList.remove('open'); $('#menuBtn').setAttribute('aria-expanded','false');
+  if(r.startsWith('p:')){S.pview={mode:'photos',view:'front',color:null,qty:1,human:true,dims:true,auto:true};}
+  render(); if(!opts||!opts.keepScroll) window.scrollTo({top:0,behavior:'instant'});
+}
+function render(){
+  clearInterval(heroTimer);
+  if(V3){try{V3.dispose();}catch(e){} V3=null;} v3tok++;
+  document.documentElement.lang=S.lang; document.documentElement.dir=t('dir');
+  renderNav(); updateBag();
+  const v=$('#view'); const r=S.route; let html='';
+  if(r==='home') html=vHome();
+  else if(r.startsWith('page:')){const pg=PM.PAGES.find(x=>x.id===r.slice(5)); html=pg?'<section class="band" style="--t:var(--tint-gold)"><div class="wrap">'+crumb([{label:'PLAYMAX',go:'home'},{label:PM.pageTitle(pg,S.lang)}])+'<h1 data-no-translate dir="auto">'+esc(PM.pageTitle(pg,S.lang))+'</h1></div></section><section class="sec" style="padding-top:28px"><div class="wrap">'+PM.pageHtml(pg,S.lang,'data-go="store"')+'</div></section>':vHome();}
+  else if(r==='privacy') html='<section class="band" style="--t:var(--tint-sky)"><div class="wrap">'+crumb([{label:'PLAYMAX',go:'home'},{label:'Privacy & terms'}])+'<h1 data-no-translate>'+esc(PM.privacyTitle(S.lang))+'</h1></div></section><section class="sec" style="padding-top:28px"><div class="wrap">'+PM.privacyHtml(S.lang)+'</div></section>';
+  else if(r==='store') html=vStore();
+  else if(r.startsWith('cat:')) html=vCat(r.slice(4));
+  else if(r.startsWith('p:')) html=vProduct(prod(r.slice(2)));
+  else if(r==='studio') html=vStudio();
+  else if(r==='market') html=vMarket();
+  else if(r==='calc') html=vCalc();
+  else if(r==='about') html=vAbout();
+  else if(r==='maintenance') html=vMaintenance();
+  else if(r==='contact') html=vContact();
+  else if(r==='cart') html=vCart();
+  else if(r==='checkout') html=vCheckout();
+  else if(r.startsWith('done:')) html=vDone(r.slice(5));
+  else if(r==='account') html=vAccount();
+  v.innerHTML='<div class="view-enter">'+html+'</div>';
+  after();
+  PM.localizeDOM(document.body,S.lang); PM.mk.hydrate(document); document.querySelectorAll('.pm-promo').forEach(w=>PM.carousel(w,5000));
+}
+function renderNav(){
+  const items=[['store',t('store')],['about',t('about')],['market',t('market')],['calc',t('profit')],['studio',t('studio')],['maintenance','Maintenance'],['contact',t('contact')]].concat(PM.PAGES.filter(p=>p.inMenu).map(p=>['page:'+p.id,PM.pageTitle(p,S.lang)]));
+  const fp=$('#footPages'); if(fp) fp.innerHTML=PM.PAGES.map(p=>'<button data-go="page:'+esc(p.id)+'" data-no-translate>'+esc(PM.pageTitle(p,S.lang))+'</button>').join('');
+  const cur=S.route.startsWith('cat:')||S.route.startsWith('p:')?'store':S.route;
+  $('#nav').innerHTML=items.map(([r,l,sp])=>'<button data-go="'+r+'"'+(cur===r?' aria-current="page"':'')+'>'+(sp?'<span style="color:var(--pink)">'+ICON.spark+'</span>':'')+esc(l)+'</button>').join('');
+  $('#acctBtn').innerHTML=S.user?'<span class="av">'+esc((S.user.name||'?').trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase())+'</span><span class="nm">'+esc(S.user.name.split(' ')[0])+'</span>':'<span class="av"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><span class="nm">'+esc(t('signIn'))+'</span>';
+  $$('.wa-ic').forEach(a=>{if(!a.innerHTML) a.innerHTML=ICONS.whatsapp;});
+  const L=LANGS.find(x=>x[0]===S.lang)||LANGS[3];
+  $('#langBtn').innerHTML=FLAG[L[0]]+'<span>'+L[1]+'</span>';
+  $('#langMenu').innerHTML=LANGS.map(([k,c])=>'<button role="menuitem" data-act="setLang" data-l="'+k+'" aria-current="'+(k===S.lang)+'">'+FLAG[k]+'<span>'+c+'</span></button>').join('');
+}
+function updateBag(){const n=S.cart.reduce((a,l)=>a+l.qty,0); const b=$('#bagCount'); b.hidden=!n; b.textContent=n;}
+
+/* ---------- views ---------- */
+function vHome(){
+  const show=[[10,'14%','8%','47%','var(--tint-pink)'],[24,'auto','6%','52%','var(--tint-gold)'],[1,'50%','auto','64%','var(--tint-sky)']];
+  const h=PM.HERO.title?'<span data-no-translate>'+esc(PM.pickLang(PM.HERO.title,S.lang))+'</span>':t('heroTitle'); const tx=PM.HERO.text?'<span data-no-translate>'+esc(PM.pickLang(PM.HERO.text,S.lang))+'</span>':t('heroText');
+  const H={hero:`<section class="hero"><div class="wrap">
+  <div>
+    <span class="kicker"><b>NEW</b>${esc(t('heroKicker'))}</span>
+    <h1>${h}</h1>
+    <p class="lead">${tx}</p>
+    <div class="ctas"><button class="btn" data-go="store">${esc(t('shopNow'))} ${ICON.arrow}</button><button class="btn ghost" data-act="heroGo" data-i="2">Wholesale prices</button></div>
+    <div class="facts"><div><strong class="num">${visible().length}</strong><span>machines</span></div><div><strong class="num">11</strong><span>categories</span></div><div><strong class="num">4</strong><span>languages</span></div></div>
+  </div>
+  <div class="hcar" id="hcar" role="region" aria-roledescription="carousel" aria-label="PLAYMAX showroom">
+   <div class="hslide on" data-i="0">
+  <div class="showroom" role="group" aria-label="PLAYMAX showroom">
+    <div class="wall"></div>
+    <div class="alcove" style="left:6%;width:28%;height:52%;background:var(--tint-pink)"></div>
+    <div class="alcove" style="right:6%;width:28%;height:56%;background:var(--tint-gold)"></div>
+    <div class="alcove" style="left:30%;width:40%;height:64%;background:var(--tint-sky)"></div>
+    <div class="floor"></div>
+    <div class="pedestal" style="left:9%;width:24%;bottom:10%;height:7%;background:var(--pink);box-shadow:0 8px 0 var(--pink-d)"></div>
+    <div class="pedestal" style="right:9%;width:24%;bottom:10%;height:7%;background:var(--orange);box-shadow:0 8px 0 var(--orange-d)"></div>
+    <div class="pedestal" style="left:31%;width:38%;bottom:6%;height:9%;background:var(--gold);box-shadow:0 10px 0 var(--gold-d)"></div>
+    <button class="mach" data-go="p:10" style="left:12%;height:47%;bottom:15%" aria-label="SPACE prize claw"><img src="assets/p10.webp" alt=""></button>
+    <button class="mach" data-go="p:24" style="right:14%;height:52%;bottom:15%" aria-label="King of the Hill"><img src="assets/p24.webp" alt=""></button>
+    <button class="mach" data-go="p:1" style="left:50%;transform:translateX(-50%);height:66%;bottom:12%" aria-label="BOX 01 King Fighters"><img src="assets/p01.webp" alt=""></button>
+    <button class="tagc" data-go="p:1" style="left:2%;top:6%"><small>BOX 01</small><strong class="num">${money(prod(1).price)}</strong></button>
+    <button class="tagc" data-go="p:29" style="right:1%;top:10%;display:flex;gap:10px;align-items:center"><img src="assets/p29.webp" alt="" style="height:54px;width:auto"><span><small>VR ZONE</small><strong class="num">${money(prod(29).price)}</strong></span></button>
+  </div>
+   </div>
+   <div class="hslide" data-i="1"><div class="hcard show"><span class="pill">All machines</span><h3>All our machines in one place</h3><p class="sub"><span class="num">${visible().length}</span> <span>machines</span> · <span class="num">${CATS.length}</span> <span>categories</span></p><img class="simg" src="assets/showcase.webp" alt="PLAYMAX machines: boxing, prize claws, vending, VR, playgrounds and table games"><div class="foot"><div class="cats">${['boxing','arcade','vending','playground'].map(id=>{const c=CATS.find(x=>x.id===id);return c?'<span>'+esc(cname(c))+'</span>':'';}).join('')}</div><button class="btn gold sm" data-go="store">See all machines ${ICON.arrow}</button></div></div></div>
+   <div class="hslide" data-i="2"><div class="hcard whole"><div class="glow"></div><img class="wimg" src="assets/wholesale.webp" alt="PLAYMAX boxing machines: KING, MANGU and UFC"><div class="seal">Wholesale price</div><div class="wtxt"><span class="pill">Order now</span><div class="big">Wholesale prices</div><p>Contact us now to know the wholesale price.</p><ul><li>Delivery & installation</li><li>Service & spare parts</li><li>5 body colors</li></ul></div><div class="acts"><a class="btn wa" href="${CONTACT.whatsapp}" target="_blank" rel="noopener">${ICONS.whatsapp} WhatsApp</a><a class="btn tg" href="${CONTACT.telegram}" target="_blank" rel="noopener">${ICONS.telegram} Telegram</a></div></div></div>
+   <div class="hdots">${[0,1,2].map(i=>'<button data-act="heroGo" data-i="'+i+'" aria-label="Slide '+(i+1)+'" aria-current="'+(i===0)+'"></button>').join('')}</div>
+  </div>
+</div></section>`,
+ticker:`<div class="ticker" aria-hidden="true"><div class="trk">${[0,1].map(()=>CATS.map(c=>'<span>'+esc(c.name[S.lang]||c.name.en)+'</span>').join('<span>✳</span>')+'<span>✳</span>').join('')}</div></div>`,
+cats:`<section class="sec"><div class="wrap">
+  <div class="sec-head"><div><span class="eyebrow">${esc(t('store'))}</span><h2>${esc(t('pickWorld'))}</h2></div><button class="btn ghost sm" data-go="store">${esc(t('viewAll'))} ${ICON.arrow}</button></div>
+  <div class="cat-grid">${CATS.map((c,i)=>catTile(c,i===0)).join('')}</div>
+</div></section>`,
+news:newsSection(),
+promos:PM.PROMOS.length?`<section class="sec" style="padding-top:0"><div class="wrap">${PM.promoHtml(S.lang,'data-go="store"')}</div></section>`:'',
+studio:`<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="teaser" style="background:linear-gradient(135deg,#FFFFFF,var(--tint-sky))">
+    <div><span class="eyebrow" style="color:var(--blue)">${esc(t('studio'))}</span><h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;margin-top:10px">Same machine. Your color.</h2><p class="lead muted" style="margin-top:12px;font-size:17px">Pick white, black, blue, red or green and see the body repaint live. Only the body/frame is painted — the punch bag, metal plate, screen and stickers keep their original look.</p><div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">${COLORS.map((c,i)=>'<button class="sw" data-act="teaserColor" data-i="'+i+'" aria-pressed="'+(i===2)+'" style="--h:'+c.hex+'"><i></i>'+esc(colName(i))+'</button>').join('')}</div><div style="margin-top:22px"><button class="btn blue" data-go="studio">Open color studio ${ICON.arrow}</button></div></div>
+    <div style="height:420px;display:flex;align-items:flex-end;justify-content:center;gap:4%"><img src="${colorSrc(prod(32),3)}" alt="MANGU in original red" style="height:88%;width:auto;max-width:46%;object-fit:contain;filter:drop-shadow(0 20px 22px rgba(11,42,111,.22))"><img id="teaserImg" src="${colorSrc(prod(32),2)}" alt="MANGU in the selected color" style="height:100%;width:auto;max-width:46%;object-fit:contain;filter:drop-shadow(0 20px 22px rgba(11,42,111,.22))"></div>
+  </div>
+</div></section>`,
+delivery:`<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="teaser" style="background:var(--ink);color:#fff">
+    <div><span class="eyebrow" style="color:var(--gold)">${esc(t('delivery'))}</span><h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:900;margin-top:10px">We ship to your door — and install.</h2><p style="margin-top:12px;opacity:.8">One delivery price for the whole order.</p><div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn gold" data-go="calc">${esc(t('profit'))} ${ICON.arrow}</button><button class="btn ghost" data-go="contact">${esc(t('contact'))}</button></div></div>
+    <div class="rates">${S.rates.map(r=>'<div class="rate"><span>'+esc(r.country)+'</span><b class="num">'+money(r.rate)+'</b></div>').join('')}</div>
+  </div>
+</div></section>`,
+__block:bk=>'<section class="sec pmb-sec" style="padding-top:0"><div class="wrap">'+PM.blockHtml(bk,S.lang,'data-go="store"')+'</div></section>'};
+  return PM.homeArrange(H,['hero','ticker','cats','news','promos','studio','delivery'],'web');
+}
+function newsSection(){ if(!PM.NEWS.length) return '';
+  return '<section class="sec" style="padding-top:0"><div class="wrap"><div class="sec-head"><div><span class="eyebrow" style="color:var(--blue)">News</span><h2>Latest from PLAYMAX</h2></div></div><div class="news-grid">'+PM.NEWS.map(n=>'<article class="news">'+(n.img?'<div class="nimg"><img src="'+esc(n.img)+'" alt="" loading="lazy"></div>':'')+'<div class="nbody" data-no-translate><span class="pill">'+esc(n.date||'')+'</span>'+(n.title?'<h3 dir="auto">'+esc(PM.pickLang(n.title,S.lang))+'</h3>':'')+(n.text?'<p dir="auto">'+esc(PM.pickLang(n.text,S.lang))+'</p>':'')+(n.link?'<a class="btn sm ghost" href="'+esc(n.link)+'" target="_blank" rel="noopener">'+'Open'+' '+ICON.arrow+'</a>':'')+'</div></article>').join('')+'</div></div></section>';}
+function catTile(c,big){const p=prod(c.hero); const n=visible().filter(x=>x.cat===c.id).length;
+  return '<button class="cat-tile'+(big?' big':'')+'" data-go="cat:'+c.id+'" style="--t:'+c.tint+';--c:'+c.color+'"><span><span class="cnt num">'+n+' '+esc(t('machines'))+'</span><h3 style="margin-top:6px">'+esc(cname(c))+'</h3></span><span class="go">'+ICON.arrow+'</span><span class="img">'+pimg(p)+'</span></button>';}
+function vStore(){
+  return '<section class="band" style="--t:var(--tint-gold)"><div class="wrap">'+crumb([{label:'PLAYMAX',go:'home'},{label:t('store')}])+'<h1>'+esc(t('pickWorld'))+'</h1><p class="muted" style="margin-top:8px;font-weight:600"><span class="num">'+CATS.length+'</span> <span>categories</span> · <span class="num">'+visible().length+'</span> <span>machines</span> · <span>tap a category to open it.</span></p></div></section><section class="sec" style="padding-top:30px"><div class="wrap"><div class="cat-grid">'+CATS.map((c,i)=>catTile(c,i<2)).join('')+'</div><div class="sec-head" style="margin-top:56px"><h2>All machines</h2></div><div class="p-grid">'+visible().map(pcard).join('')+'</div></div></section>';
+}
+function vCat(id){const c=cat(id); if(!c) return vStore();
+  let list=visible().filter(p=>p.cat===id);
+  if(S.catSort==='low') list=[...list].sort((a,b)=>a.price-b.price); if(S.catSort==='high') list=[...list].sort((a,b)=>b.price-a.price);
+  return '<section class="band" style="--t:'+c.tint+'"><div class="wrap">'+crumb([{label:'PLAYMAX',go:'home'},{label:t('store'),go:'store'},{label:cname(c)}])+'<h1>'+esc(cname(c))+'</h1><p style="margin-top:8px;font-weight:600;color:var(--ink-2);max-width:620px">'+esc(CAT_DESC[id])+'</p><div class="scroller" role="tablist" aria-label="Categories">'+CATS.map(x=>'<button class="chip'+(x.id===id?' on':'')+'" role="tab" aria-selected="'+(x.id===id)+'" data-go="cat:'+x.id+'">'+esc(cname(x))+'</button>').join('')+'</div></div></section><section class="wrap"><div class="toolbar"><strong class="num">'+list.length+' '+esc(t('machines'))+'</strong><label class="field" style="flex-direction:row;align-items:center;gap:10px">Sort<select class="input" id="sortSel" style="min-height:44px;width:auto"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></label></div><div class="p-grid" style="padding-bottom:60px">'+(list.length?list.map(pcard).join(''):'<div class="empty"><h3>No machines here yet</h3><p class="muted">New machines will appear here as they are added to the catalog.</p></div>')+'</div></section>';
+}
+function vProduct(p){ if(!p) return vStore(); const c=cat(p.cat); const pv=S.pview;
+  const col=pv.color==null?nativeColor(p):pv.color;
+  const dims=heightMm(p); const has3d=!!p.model3d;
+  const modes=[['photos',ICON.photo,t('tPhotos')]].concat(has3d?[['3d',ICON.cube,t('t3d')]]:[]).concat([['size',ICON.ruler,t('tSize')]]);
+  if(!modes.some(m=>m[0]===pv.mode)) pv.mode='photos';
+  const VIEWS=[['front','Front'],['angle','3/4'],['side','Side'],['back','Back']];
+  const vw=p.views?pv.view:null; const vlab=p.views?VIEWS.find(v=>v[0]===vw)[1]:'Full view';
+  const related=visible().filter(x=>x.cat===p.cat&&x.id!==p.id).slice(0,4);
+  const v3box=(size)=>'<div class="viewer v3dwrap" style="--t:'+c.tint+'"><div class="v3d" id="v3d" aria-label="Interactive 3D model of '+esc(p.model)+'. Drag to rotate, scroll or pinch to zoom."></div><div class="v3dload" id="v3dLoad"><span class="sp"></span><span>Loading 3D model…</span></div><span class="vlabel">'+(size?'Size · 1.75 m person':'3D · drag to rotate')+'</span><div class="v3dbar" role="group" aria-label="Camera">'+[['angle','3/4'],['front','Front'],['side','Side'],['back','Back'],['top','Top']].map(([k,l])=>'<button data-act="v3view" data-v="'+k+'" aria-pressed="'+((size?'front':'angle')===k)+'">'+l+'</button>').join('')+'</div></div>';
+  let media='';
+  if(pv.mode==='photos'){
+    media='<div class="viewer crop" id="viewer" style="--t:'+c.tint+'" data-act="zoom" role="button" tabindex="0" aria-label="Open full-size photo"><span class="vlabel" id="vLabel">'+esc(vlab)+'</span><span class="zoom-hint">'+ICON.zoom+' Zoom</span>'+(p.photo?'':'<div class="pedestal"></div><div class="floorshadow"></div>')+'<img class="main'+(p.photo?' rph':'')+'" id="mainImg" src="'+colorSrc(p,col,vw)+'" alt="'+esc(p.model+' '+p.name+' — '+vlab)+'"></div>';
+    if(p.views) media+='<div class="thumbs">'+VIEWS.map(([k,l])=>'<button class="thumb" data-act="pview" data-v="'+k+'" aria-pressed="'+(k===vw)+'"><img src="'+colorSrc(p,col,k)+'" alt="" data-view="'+k+'"><span>'+l+'</span></button>').join('')+'</div>';
+    else if(p.gallery&&p.gallery.length>1) media+='<div class="thumbs" style="grid-template-columns:repeat('+Math.min(5,p.gallery.length)+',minmax(0,1fr))">'+p.gallery.map((u,k)=>'<button class="thumb" data-act="gpick" data-u="'+esc(u)+'" aria-pressed="'+(k===0)+'" aria-label="Photo '+(k+1)+'"><img src="'+esc(u)+'" alt="" loading="lazy"></button>').join('')+'</div>';
+    else if(p.colors) media+='<div class="thumbs" style="grid-template-columns:repeat(5,minmax(0,1fr))">'+COLORS.map((x,i)=>'<button class="thumb" data-act="pcolor" data-i="'+i+'" aria-pressed="'+(col===i)+'" aria-label="'+esc(colName(i))+'"><img src="'+colorSrc(p,i)+'" alt="" loading="lazy"><span>'+esc(colName(i))+'</span></button>').join('')+'</div>';
+  }
+  if(pv.mode==='3d'){
+    media=v3box(false)+'<div class="v3dtools"><button class="chip" data-act="v3human" aria-pressed="false">1.75 m person</button><button class="chip" data-act="v3dims" aria-pressed="false">Measurements</button><button class="chip" data-act="v3auto" aria-pressed="true">Auto-rotate</button></div>';
+  }
+  if(pv.mode==='size'){
+    if(has3d){
+      media=v3box(true)+'<div class="dimgrid"><div><small>Height</small><b class="num">221 cm</b></div><div><small>Top width</small><b class="num">130 cm</b></div><div><small>Middle width</small><b class="num">80 cm</b></div><div><small>Weight</small><b class="num">100 kg</b></div></div>';
+    } else if(dims){const H=Math.max(dims.h,1750); const mh=(dims.h/H*100).toFixed(1), ph=(1750/H*100).toFixed(1);
+      media='<div class="viewer" style="--t:'+c.tint+'"><span class="vlabel">Size guide</span><div class="sizebox"><div class="mwrap" style="height:'+mh+'%"><span class="dim dim-v"><b class="num">'+(dims.h/1000).toFixed(2)+' m</b></span><img id="sizeImg" src="'+colorSrc(p,col)+'" alt="'+esc(p.model)+' to scale"></div><div class="person" style="height:'+ph+'%"><svg viewBox="0 0 40 120" style="height:calc(100% - 22px);width:auto" aria-hidden="true"><circle cx="20" cy="10" r="9"/><path d="M8 24h24l4 40h-8l-2 54h-8l-2-40-2 40h-8l-2-54H4z"/></svg><span>1.75 m person</span></div></div></div><div class="dimgrid"><div><small>Height</small><b class="num">'+(dims.h/10)+' cm</b></div>'+(dims.w?'<div><small>Width</small><b class="num">'+(dims.w/10)+' cm</b></div><div><small>Depth</small><b class="num">'+(dims.d/10)+' cm</b></div>':'')+(p.specs.find(s=>/\bkg\b/.test(s)&&!/·/.test(s))?'<div><small>Weight</small><b class="num">'+esc(p.specs.find(s=>/\bkg\b/.test(s)&&!/·/.test(s)))+'</b></div>':'')+'</div>';}
+    else media='<div class="viewer" style="--t:'+c.tint+'"><div class="empty"><h3>Size drawing coming soon</h3><p class="muted">This product has no dimensions in the catalog yet.</p></div></div>';
+  }
+  const colorPanel='<div class="panel" style="margin-top:18px"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px"><strong>'+esc(t('bodyColor'))+': <span id="colName">'+esc(col==null?'—':colName(col))+'</span></strong>'+(p.colors?'<span class="pill" style="background:var(--tint-sky);color:var(--blue)">'+(p.views?'Real photos · 3D':'Preview')+'</span>':'')+'</div>'+('<div class="swatches">'+COLORS.map((x,i)=>'<button class="sw" data-act="pcolor" data-i="'+i+'" aria-pressed="'+(col===i)+'" style="--h:'+x.hex+'"><i></i>'+esc(colName(i))+'</button>').join('')+'</div><p class="muted" style="font-size:13px;margin-top:12px;font-weight:600">'+esc(t('onlyBody'))+(p.colors?'':' '+t('made'))+'</p>')+'</div>';
+  return '<div class="wrap"><div style="padding-top:22px">'+crumb([{label:'PLAYMAX',go:'home'},{label:t('store'),go:'store'},{label:cname(c),go:'cat:'+c.id},{label:p.model}])+'</div><div class="pp"><div class="media"><div class="modes" role="tablist" aria-label="View">'+modes.map(([k,ic,l])=>'<button role="tab" data-act="mode" data-m="'+k+'" aria-selected="'+(pv.mode===k)+'">'+ic+esc(l)+'</button>').join('')+'</div>'+media+'</div><div class="info"><span class="eyebrow" style="color:'+c.color+'">'+esc(p.model)+' · '+esc(cname(c))+'</span><h1>'+esc(p.name)+'</h1><p class="lead">'+esc(CAT_DESC[p.cat])+'</p>'+(p.desc?'<p class="pdesc" data-no-translate dir="auto">'+esc(PM.pickLang(p.desc,S.lang))+'</p>':'')+'<div class="pricebar"><span class="price num">'+money(p.price)+'</span><span class="muted" style="font-weight:700;padding-bottom:6px">Price confirmed on order</span></div>'+(canChooseColor(p)?colorPanel:'')+'<div style="display:flex;gap:12px;align-items:center;margin-top:18px;flex-wrap:wrap"><div class="qty"><button data-act="pq" data-d="-1" aria-label="Fewer">−</button><span class="num" id="pQty">'+pv.qty+'</span><button data-act="pq" data-d="1" aria-label="More">+</button></div><button class="btn" style="flex:1" data-act="addP" data-id="'+p.id+'">'+ICON.bag+' '+esc(t('addToBag'))+'</button></div><div style="display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px"><button class="btn ghost" data-act="rentP" data-id="'+p.id+'">'+ICON.cal+' '+esc(t('rent'))+'</button></div><div class="panel" style="margin-top:18px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><label class="field" style="flex-direction:row;align-items:center;gap:10px">Deliver to<select class="input" id="pCountry" style="min-height:44px;width:auto">'+S.rates.map(r=>'<option value="'+esc(r.country)+'"'+(r.country===S.country?' selected':'')+'>'+esc(r.country)+'</option>').join('')+'</select></label><strong><span class="num">'+money(shipFee())+'</span> <span>per order</span></strong></div><span class="muted" style="font-size:13px;font-weight:700">Order through WhatsApp or Telegram — we confirm the price and delivery date.</span></div><h3 style="margin-top:28px;font-size:20px">Specifications</h3><table class="specs"><tbody>'+(dims?'<tr><td>Dimensions</td><td class="num">'+(dims.w?dims.w+' × '+dims.d+' × ':'')+dims.h+' mm</td></tr>':'')+p.specs.filter(s=>!/×/.test(s)||!dims).map(s=>{const k=/kg/.test(s)?'Weight':/W\b|kW|V\b/.test(s)?'Power':/body|glass|plastic|steel|MDF|metal|fiberglass/i.test(s)?'Material':'Feature'; return '<tr><td>'+k+'</td><td>'+esc(s)+'</td></tr>';}).join('')+'<tr><td>Body colors</td><td>'+(canChooseColor(p)?'White · Black · Blue · Red · Green':'—')+'</td></tr><tr><td>Category</td><td>'+esc(cname(c))+'</td></tr></tbody></table></div></div>'+(related.length?'<section style="padding-bottom:60px"><div class="sec-head"><h2 style="font-size:28px">More '+esc(cname(c).toLowerCase())+'</h2></div><div class="p-grid">'+related.map(pcard).join('')+'</div></section>':'')+'</div>';
+}
+
+function vStudio(){const s=S.studio; let p=prod(s.pid); if(!p||!p.colors){p=prod(32); s.pid=32;} const nat=nativeColor(p); const glow=['#EEF1F6','#E6E8EE','#DCEBFF','#FFE0DE','#DDF5E6'][s.color];
+  const list=visible().filter(x=>x.cat==='boxing'&&x.colors);
+  return '<section class="band" style="--t:var(--tint-sky)"><div class="wrap">'+crumb([{label:'PLAYMAX',go:'home'},{label:t('studio')}])+'<h1>'+esc(t('studio'))+'</h1><p style="margin-top:8px;font-weight:600;color:var(--ink-2);max-width:640px">Choose a machine and a body color. Drag the handle to compare. Only the body/frame is painted — the bag, metal, screen and stickers stay original.</p></div></section><section class="sec" style="padding-top:30px"><div class="wrap studio"><div class="compare" id="compare" style="--glow:'+glow+';--cut:'+s.cut+'%"><span class="lb" style="left:16px">Original'+(nat!=null?' · '+esc(colName(nat)):'')+'</span><span class="lb" style="right:16px">'+esc(colName(s.color))+'</span><div class="layer"><img src="'+colorSrc(p,nat)+'" alt="'+esc(p.model)+' original"></div><div class="layer after"><img id="studioImg" src="'+colorSrc(p,s.color)+'" alt="'+esc(p.model)+' in '+esc(colName(s.color))+'"></div><div class="handle"><button aria-label="Drag to compare" id="cmpHandle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></button></div></div><div style="display:flex;flex-direction:column;gap:18px"><div><strong>1 · Machine <span class="muted num">('+list.length+')</span></strong><div class="mpick" style="margin-top:10px">'+list.map(x=>'<button data-act="spick" data-id="'+x.id+'" aria-pressed="'+(x.id===p.id)+'"><img src="'+x.img+'" alt="" loading="lazy">'+esc(x.model)+'</button>').join('')+'</div></div><div><strong>2 · Body color</strong><div class="swatches" style="margin-top:12px">'+COLORS.map((x,i)=>'<button class="sw" data-act="scolor" data-i="'+i+'" aria-pressed="'+(i===s.color)+'" style="--h:'+x.hex+'"><i></i>'+esc(colName(i))+'</button>').join('')+'</div></div><div class="panel"><strong>'+esc(p.model)+' · '+esc(p.name)+' · '+esc(colName(s.color))+'</strong><div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><button class="btn" data-act="addStudio">'+ICON.bag+' '+esc(t('addToBag'))+' · <span class="num">'+money(p.price)+'</span></button><button class="btn ghost" data-go="p:'+p.id+'">'+(p.model3d?ICON.cube+' See in 3D':'See details')+'</button></div></div></div></div></section>';
+}
+
+
+function mkErr(r){return r==='banned'?'Your account is blocked from posting.':r==='words'?'Your post contains words that are not allowed. Please edit it.':r==='denied'?'You cannot do this with your current access.':r==='full'?'The marketplace storage is full. Delete old posts first.':r==='space'?'Not enough space on this device — use fewer or smaller photos.':r==='missing'?'This post no longer exists.':'Could not save. Check the connection and try again.';}
+function mkDrawPrev(){const pv=$('#mkPrev'); if(!pv) return; const ed=S.mkEdit?mkPostById(S.mkEdit.author,S.mkEdit.id):null; pv.innerHTML=mkPhotos.map((ph,i)=>'<span class="pv">'+(ph.data?'<img src="'+ph.data+'" alt="">':PM.mk.img(ed||{author:''},ph.ref,''))+'<button type="button" data-act="mkPhRm" data-i="'+i+'" aria-label="Remove photo">×</button></span>').join(''); PM.mk.hydrate(pv); PM.localizeDOM(pv,S.lang);}
+function mkPostById(a,id){return PM.mk.state.posts.find(x=>x.author===a&&x.id===id);}
+function postCard(m){const MK=PM.mk.state; const links=sellerLinks(m.contacts||{}); const ic={whatsapp:ICONS.whatsapp,telegram:ICONS.telegram,phone:'📞',instagram:'📷',link:'🔗'}; const lab={whatsapp:'WhatsApp',telegram:'Telegram',phone:'Call',instagram:'Instagram',link:'Website'};
+  const A=' data-a="'+esc(m.author)+'" data-id="'+esc(m.id)+'"'; const ask=S.mkAsk&&S.mkAsk.id===m.id&&S.mkAsk.author===m.author?S.mkAsk:null; const blocked=!!MK.bans[m.author]; const canEdit=(m.mine&&!(MK.banned&&!MK.admin))||MK.admin; const canDel=(m.mine&&!MK.banned)||MK.admin; const canBan=MK.admin&&!m.mine&&MK.mode==='shared'; const canReport=MK.mode==='shared'&&!m.mine&&!MK.admin;
+  let acts='';
+  if(ask&&ask.type==='del') acts='<div class="mk-ask"><b>Delete this post?</b><div class="mk-acts"><button class="chip danger" data-act="mkDelYes"'+A+'>Delete</button><button class="chip" data-act="mkAskNo">Cancel</button></div></div>';
+  else if(ask&&ask.type==='ban') acts='<div class="mk-ask"><b>Block this user from posting?</b><span class="muted" style="font-size:13px;font-weight:600">They can still browse the marketplace, but cannot post.</span><div class="mk-acts"><button class="chip danger" data-act="mkBanYes" data-purge="0"'+A+'>Block only</button><button class="chip danger" data-act="mkBanYes" data-purge="1"'+A+'>Block and delete all their posts</button><button class="chip" data-act="mkAskNo">Cancel</button></div></div>';
+  else if(ask&&ask.type==='report') acts='<div class="mk-ask"><b>Why are you reporting this post?</b><div class="mk-acts">'+[['spam','Spam'],['offensive','Offensive'],['fake','Fake or scam'],['other','Other']].map(([k,l])=>'<button class="chip danger" data-act="mkReportSend" data-r="'+k+'"'+A+'>'+l+'</button>').join('')+'<button class="chip" data-act="mkAskNo">Cancel</button></div></div>';
+  else if(canReport) acts='<div class="mk-acts"><button class="chip" data-act="mkReportAsk"'+A+'>🚩 Report</button></div>';
+  else if(canDel||canBan) acts='<div class="mk-acts">'+(canEdit?'<button class="chip" data-act="mkEditOpen"'+A+'>✏️ Edit</button>':'')+(canDel?'<button class="chip danger" data-act="mkDelAsk"'+A+'>🗑 Delete</button>':'')+(canBan?(blocked?'<button class="chip" data-act="mkUnban"'+A+'>Unblock user</button>':'<button class="chip danger" data-act="mkBanAsk"'+A+'>⛔ Block user</button>'):'')+'</div>';
+  const badges=(m.mine&&MK.mode==='shared'?'<span class="mk-badge me">Your post</span>':'')+(blocked&&MK.admin?'<span class="mk-badge bad">Blocked user</span>':'')+(m.edited?'<span class="mk-badge">Edited</span>':'');
+  return '<article class="mk-card"><div class="mk-ph">'+(m.photos||[]).map(r=>PM.mk.img(m,r,m.title)).join('')+((m.photos||[]).length>1?'<span class="cnt num">'+m.photos.length+' 📷</span>':'')+'</div><div class="mk-body">'+(badges?'<div class="mk-badges">'+badges+'</div>':'')+'<h3 data-no-translate>'+esc(m.title)+'</h3><div class="mk-meta">'+(m.price?'<span class="num">'+money(m.price)+'</span>':'')+'<span>'+esc(m.cond==='new'?'New':'Used')+'</span><span>'+esc(m.cat==='other'?'Other':cname(cat(m.cat)||{name:{en:'Other'}}))+'</span><span>'+esc(m.country)+'</span>'+(m.city?'<span data-no-translate>'+esc(m.city)+'</span>':'')+'</div><p class="mk-desc" data-no-translate>'+esc(m.desc)+'</p><div class="mk-seller"><span class="av">'+esc((m.seller||'?').trim().slice(0,1).toUpperCase())+'</span><span data-no-translate>'+esc(m.seller)+'</span><span class="muted" style="margin-inline-start:auto;font-weight:700" dir="ltr">'+new Date(m.at).toLocaleDateString()+'</span></div><div class="mk-links">'+links.map(([k,h])=>'<a href="'+esc(h)+'" target="_blank" rel="noopener">'+ic[k]+'<span>'+lab[k]+'</span></a>').join('')+'</div>'+acts+'</div></article>';}
+function mkFormHtml(){const ed=S.mkEdit?mkPostById(S.mkEdit.author,S.mkEdit.id):null; const v=ed||{}; const c=v.contacts||{}; const sel=(a,b)=>a===b?' selected':'';
+  const prev=mkPhotos.map((ph,i)=>'<span class="pv">'+(ph.data?'<img src="'+ph.data+'" alt="">':PM.mk.img(ed||{author:''},ph.ref,''))+'<button type="button" data-act="mkPhRm" data-i="'+i+'" aria-label="Remove photo">×</button></span>').join('');
+  return '<form class="card" data-act="mkPost" id="mkForm" style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px"><h2 style="font-size:24px">'+(ed?'Edit post':'Post a machine for sale')+'</h2><div class="mk-form"><label class="field full">Machine name<input class="input" id="mkTitle" required maxlength="80" placeholder="e.g. Boxing machine, almost new" value="'+esc(v.title||'')+'"></label><label class="field">Category<select class="input" id="mkCat">'+CATS.map(k=>'<option value="'+k.id+'"'+sel(v.cat,k.id)+'>'+esc(cname(k))+'</option>').join('')+'<option value="other"'+sel(v.cat,'other')+'>Other</option></select></label><label class="field">Condition<select class="input" id="mkCond"><option value="used">Used</option><option value="new"'+sel(v.cond,'new')+'>New</option></select></label><label class="field">Price (USD, optional)<input class="input num" id="mkPrice" type="number" min="0" step="1" inputmode="numeric" value="'+(v.price||'')+'"></label><label class="field">Country<select class="input" id="mkCountry">'+S.rates.map(r=>'<option value="'+esc(r.country)+'"'+((v.country||S.country)===r.country?' selected':'')+'>'+esc(r.country)+'</option>').join('')+'</select></label><label class="field">City<input class="input" id="mkCity" maxlength="40" value="'+esc(v.city||'')+'"></label><label class="field full">Description<textarea class="input" id="mkDesc" required maxlength="1200" placeholder="Model, year, condition, what is included…">'+esc(v.desc||'')+'</textarea></label><div class="field full"><span>Photos (up to 4)</span><label class="mk-drop" for="mkFiles">📷 Add photos</label><input id="mkFiles" type="file" accept="image/*" multiple hidden><div class="mk-prev" id="mkPrev">'+prev+'</div></div><label class="field full">Your name<input class="input" id="mkSeller" required maxlength="50" value="'+esc(ed?v.seller:(S.user?S.user.name:''))+'"></label><label class="field">Phone<input class="input" id="mkPhone" type="tel" dir="ltr" value="'+esc(c.phone||'')+'"></label><label class="field">WhatsApp<input class="input" id="mkWa" type="tel" dir="ltr" placeholder="+998…" value="'+esc(c.whatsapp||'')+'"></label><label class="field">Telegram<input class="input" id="mkTg" dir="ltr" placeholder="@username" value="'+esc(c.telegram||'')+'"></label><label class="field">Instagram<input class="input" id="mkIg" dir="ltr" placeholder="@account" value="'+esc(c.instagram||'')+'"></label><label class="field full">Other link (optional)<input class="input" id="mkOther" type="url" dir="ltr" placeholder="https://" value="'+esc(c.other||'')+'"></label></div><p class="muted" style="font-size:13px;font-weight:600">Add at least one way for buyers to contact you.</p><p class="muted" style="font-size:13px;font-weight:600;margin-top:-8px"><button type="button" class="chip" data-go="privacy" style="min-height:30px">By posting you agree to the marketplace rules.</button></p><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" id="mkSave">'+(ed?'Save changes':'Publish post')+'</button><button type="button" class="btn ghost" data-act="mkCancel">Cancel</button></div></form>';}
+function vMarket(){const MK=PM.mk.state; const all=MK.posts; const list=S.mkCat==='all'?all:all.filter(m=>m.cat===S.mkCat); const shared=MK.mode==='shared';
+  const formOpen=S.mkForm||!!S.mkEdit;
+  const postBtn=shared&&MK.banned?'':shared&&!MK.canPost?'':(formOpen?'':'<button class="btn" data-act="mkToggle">+ Post a machine</button>');
+  const notice=shared&&MK.banned?'<div class="mk-note" style="margin-bottom:18px">⛔ Your account has been blocked from posting by PLAYMAX. You can still browse the marketplace.</div>':shared&&!MK.canPost?'<div class="mk-note" style="margin-bottom:18px;background:var(--tint-sky);border-color:#b9dff0;color:var(--ink)">You can browse the posts. Posting is not available with your current access.</div>':'';
+  const bans=Object.entries(MK.bans||{});
+  const welcome='<div class="mk-welcome"><div class="mk-wtop"><span class="mk-wic" aria-hidden="true">🤝</span><div><b>Welcome to the PLAYMAX marketplace</b><span>Sell your machine to buyers across Central Asia — free. Keep it friendly and trusted for everyone:</span></div></div><ul><li>📸 Real machines with clear photos</li><li>💲 An honest price and description</li><li>🤝 Respectful words — no insults</li><li>📞 Correct contacts so buyers can reach you</li></ul><button class="chip" data-go="privacy">Marketplace rules</button></div>';
+  const admin=shared&&MK.admin&&(Object.keys(MK.bans||{}).length||MK.reports.length)?'<div class="mk-admin">'+(bans.length?'<b>Blocked users</b><div class="bl">'+bans.map(([id,b])=>'<span><span data-no-translate>'+esc(b.seller||'User')+'</span><button data-act="mkUnban" data-a="'+esc(id)+'">Unblock</button></span>').join('')+'</div>':'')+(MK.reports.length?'<b>Reports</b>'+'<div style="display:flex;flex-direction:column;gap:8px">'+MK.reports.map(r=>'<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:rgba(255,255,255,.1);border-radius:14px;padding:8px 12px"><span data-no-translate style="font-weight:800">'+esc(r.title)+'</span><span class="muted">— '+esc({spam:'Spam',offensive:'Offensive',fake:'Fake or scam',other:'Other'}[r.reason]||r.reason)+'</span><span style="margin-inline-start:auto;display:flex;gap:6px"><button class="chip" data-act="mkDelAsk" data-a="'+esc(r.author)+'" data-id="'+esc(r.post)+'">Delete post</button><button class="chip" data-act="mkRepDismiss" data-rep="'+esc(r.reporter)+'" data-rid="'+esc(r.id)+'">Dismiss</button></span></div>').join('')+'</div>':'')+'</div>':'';
+  const feed=!MK.ready?'<div class="card empty"><span class="sp" style="display:inline-block"></span><p class="muted">Loading posts…</p></div>':list.length?'<div class="mk-grid">'+list.map(postCard).join('')+'</div>':'<div class="card empty"><span style="font-size:40px">🎪</span><h3>No posts yet</h3><p class="muted">Be the first to post your machine for sale.</p>'+(postBtn&&!formOpen?postBtn:'')+'</div>';
+  return '<section class="band" style="--t:var(--tint-sky)"><div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div>'+crumb([{label:'PLAYMAX',go:'home'},{label:t('market')}])+'<h1>Buy and sell game machines</h1><p style="margin-top:10px;font-size:18px;color:var(--ink-2);max-width:640px">Post your machine with photos, a description and your contacts. Buyers contact you directly.</p></div>'+postBtn+'</div></section><section class="sec" style="padding-top:28px"><div class="wrap">'+welcome+admin+notice+(formOpen?mkFormHtml():'')+'<div class="scroller" style="margin-bottom:18px"><button class="chip'+(S.mkCat==='all'?' on':'')+'" data-act="mkCat" data-c="all">All</button>'+CATS.map(c=>'<button class="chip'+(S.mkCat===c.id?' on':'')+'" data-act="mkCat" data-c="'+c.id+'">'+esc(cname(c))+'</button>').join('')+'<button class="chip'+(S.mkCat==='other'?' on':'')+'" data-act="mkCat" data-c="other">Other</button></div>'+feed+'<p class="muted" style="font-size:12px;font-weight:600;margin-top:18px">'+(shared?'Posts are visible to everyone. Each person can edit or delete only their own posts.':'Prototype: posts are saved on this device until the marketplace server is connected.')+'</p></div></section>';}
+function calcNums(){const c=S.calc,p=prod(c.pid),daily=c.players*c.price*c.machines,rev=daily*c.days,profit=rev-c.costs,investment=p.price*c.machines,months=profit>0?investment/profit:Infinity;return{p,daily,rev,profit,investment,months,annual:rev*12,annualProfit:profit*12};}
+function calcChart(){const {profit,months,investment}=calcNums();const W=520,H=220,pad=36,maxV=Math.max(investment*1.4,profit*12,1),x=m=>pad+(W-pad*2)*m/12,y=v=>H-pad-(H-pad*2)*Math.max(0,v)/maxV;let path='';for(let m=0;m<=12;m++)path+=(m?'L':'M')+x(m).toFixed(1)+' '+y(profit*m).toFixed(1)+' ';const cross=months<=12?'<circle cx="'+x(months).toFixed(1)+'" cy="'+y(investment).toFixed(1)+'" r="7" fill="#E8352B" stroke="#fff" stroke-width="3"/><text x="'+x(months).toFixed(1)+'" y="'+(y(investment)-14).toFixed(1)+'" text-anchor="middle" font-size="12" font-weight="800" fill="#0B2A6F">paid back</text>':'';let ticks='';for(let m=0;m<=12;m+=3)ticks+='<text x="'+x(m)+'" y="'+(H-10)+'" text-anchor="middle" font-size="11" font-weight="700" fill="#5A6A92">'+(m?m+' mo':'start')+'</text>';return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Estimated cumulative profit over twelve months"><line x1="'+pad+'" x2="'+(W-pad)+'" y1="'+y(0)+'" y2="'+y(0)+'" stroke="rgba(11,42,111,.2)"/><line x1="'+pad+'" x2="'+(W-pad)+'" y1="'+y(investment)+'" y2="'+y(investment)+'" stroke="#0B2A6F" stroke-dasharray="6 6"/><text x="'+(W-pad)+'" y="'+(y(investment)-8)+'" text-anchor="end" font-size="11" font-weight="800" fill="#0B2A6F">investment '+money(investment)+'</text><path d="'+path+' L'+x(12)+' '+y(0)+' L'+x(0)+' '+y(0)+'Z" fill="rgba(31,91,216,.12)"/><path d="'+path+'" fill="none" stroke="#1F5BD8" stroke-width="4" stroke-linecap="round"/>'+cross+ticks+'</svg>';}
+function calcResult(){const{daily,rev,profit,months,annual,annualProfit,investment}=calcNums();const pb=!isFinite(months)?'Not yet':months<1?Math.max(1,Math.round(months*S.calc.days))+' days':(Math.round(months*10)/10)+' months';return '<div style="font-weight:800">Estimated payback</div><div class="big">'+pb+'</div><div class="kpis" style="grid-template-columns:repeat(auto-fit,minmax(130px,1fr))">'+[['Daily revenue',daily],['Monthly revenue',rev],['Yearly revenue',annual],['Monthly profit',profit],['Yearly profit',annualProfit],['Investment',investment]].map(([label,value])=>'<div><small>'+label+'</small><b class="num">'+money(value)+'</b></div>').join('')+'</div><div class="chart">'+calcChart()+'</div><p style="font-size:12px;font-weight:700;margin-top:10px;opacity:.8">Estimate from your inputs; actual results depend on usage and operating costs.</p>';}
+function vCalc(){const c=S.calc;const rng=(k,l,min,max,step,fmt)=>'<div class="range"><div class="top"><label for="r-'+k+'">'+l+'</label><span class="num" id="o-'+k+'">'+fmt(c[k])+'</span></div><input type="range" id="r-'+k+'" data-k="'+k+'" min="'+min+'" max="'+max+'" step="'+step+'" value="'+c[k]+'"><input class="input num" type="number" data-calc="'+k+'" min="'+min+'" max="'+max+'" step="'+step+'" value="'+c[k]+'" aria-label="Enter '+l.toLowerCase()+'" style="min-height:42px"></div>';return '<section class="band" style="--t:var(--tint-gold)"><div class="wrap">'+crumb([{label:'PLAYMAX',go:'home'},{label:t('profit')}])+'<h1>Estimate machine income</h1><p style="margin-top:8px;font-weight:700">Adjust the values to see daily, monthly and yearly revenue update instantly.</p></div></section><section class="sec" style="padding-top:30px"><div class="wrap calc"><div class="card" style="display:flex;flex-direction:column;gap:20px"><label class="field">Machine<select class="input" id="calcM">'+visible().map(p=>'<option value="'+p.id+'"'+(p.id===c.pid?' selected':'')+'>'+esc(p.model+' — '+p.name+' ('+money(p.price)+')')+'</option>').join('')+'</select></label>'+rng('machines','Number of machines',1,50,1,v=>v)+rng('players','Plays per machine per day',0,2000,1,v=>v)+rng('price','Price per play',0,100,0.25,v=>money(v))+rng('days','Open days per month',1,31,1,v=>v)+rng('costs','Monthly operating costs',0,50000,10,v=>money(v))+'</div><div class="result" id="calcRes">'+calcResult()+'</div></div></section>';}function vAbout(){
+  return '<section class="band" style="--t:var(--tint-pink)"><div class="wrap" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:center">'+'<div>'+crumb([{label:'PLAYMAX',go:'home'},{label:t('about')}])+'<h1>We turn empty corners into crowds.</h1><p style="margin-top:14px;font-size:18px;color:var(--ink-2);max-width:620px">PLAYMAX supplies arcade, boxing and family-entertainment machines to businesses across Afghanistan, Uzbekistan and beyond — from choosing the right machine to delivery, installation and service.</p></div><img src="assets/logo-circle.png" alt="PLAYMAX دلیر logo" style="width:min(220px,40vw);height:auto;border-radius:50%;background:#fff;box-shadow:var(--shadow)"></div></section><section class="sec"><div class="wrap"><div class="cards3"><div class="card" style="background:var(--tint-sky)"><span class="eyebrow" style="color:var(--blue)">Vision</span><h3 style="font-size:22px;margin-top:10px">A playground in every neighborhood of the region.</h3></div><div class="card" style="background:var(--tint-pink)"><span class="eyebrow" style="color:var(--pink-d)">Mission</span><h3 style="font-size:22px;margin-top:10px">Profitable, safe machines with real support after the sale.</h3></div><div class="card" style="background:var(--tint-gold)"><span class="eyebrow" style="color:#8A5A00">Promise</span><h3 style="font-size:22px;margin-top:10px">Fair prices, on-time delivery and honest advice.</h3></div></div><div class="sec-head" style="margin-top:60px"><div><span class="eyebrow">How we work</span><h2>From idea to a busy machine</h2></div></div><div class="steps"><div class="step"><h3 style="font-size:17px">You ask</h3><p class="muted" style="margin-top:6px">Pick a machine or describe your space to our team.</p></div><div class="step"><h3 style="font-size:17px">We calculate</h3><p class="muted" style="margin-top:6px">Price, delivery and payback for your location.</p></div><div class="step"><h3 style="font-size:17px">You order</h3><p class="muted" style="margin-top:6px">Send your order on WhatsApp or Telegram — we confirm the price and delivery date.</p></div><div class="step"><h3 style="font-size:17px">We deliver &amp; install</h3><p class="muted" style="margin-top:6px">Our team sets it up and trains your staff.</p></div><div class="step"><h3 style="font-size:17px">We support</h3><p class="muted" style="margin-top:6px">Service and spare parts after the sale. Warranty: [X] year.</p></div></div></div></section>';
+}
+function vMaintenance(){return '<section class="band" style="--t:var(--tint-sky)"><div class="wrap">'+crumb([{label:'PLAYMAX',go:'home'},{label:'Machine maintenance'}])+'<span class="eyebrow" style="color:var(--blue)">PLAYMAX SUPPORT</span><h1 style="margin-top:8px">Machine care &amp; maintenance</h1><p style="margin-top:10px;font-size:18px;color:var(--ink-2);max-width:700px">Clear video guides for common machine issues, with practical steps to help you maintain and troubleshoot your equipment.</p></div></section>'+(PM.GUIDES.length?'<section class="sec" style="padding-top:28px"><div class="wrap">'+PM.guidesHtml(S.lang)+'<div class="card" style="margin-top:22px;background:var(--cream)"><b>Need help now?</b><p class="muted" style="margin-top:6px;font-weight:600">For electrical faults, damaged cables or unsafe operation, switch off and unplug the machine before contacting PLAYMAX support.</p><button class="btn ghost" data-go="contact" style="margin-top:14px">Contact PLAYMAX support '+ICON.arrow+'</button></div></div></section>':'<section class="sec"><div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px"><article class="card" style="background:linear-gradient(140deg,var(--tint-sky),var(--tint-gold));border:0"><span class="eyebrow" style="color:var(--blue)">VIDEO LIBRARY</span><h2 style="font-size:25px;margin-top:8px">Maintenance video guides</h2><p class="muted" style="margin-top:10px;font-weight:600">Each guide will include a video and numbered instructions underneath, so you can follow along at your own pace.</p></article><article class="card" style="display:flex;flex-direction:column;align-items:flex-start;gap:10px"><span style="font-size:32px">🛠️</span><h2 style="font-size:22px">Guides are being prepared</h2><p class="muted" style="font-weight:600">Send us your troubleshooting videos when ready. We’ll organize them by machine and add the matching step-by-step explanation here.</p></article><div class="card" style="grid-column:1/-1;background:var(--cream)"><b>Need help now?</b><p class="muted" style="margin-top:6px;font-weight:600">For electrical faults, damaged cables or unsafe operation, switch off and unplug the machine before contacting PLAYMAX support.</p><button class="btn ghost" data-go="contact" style="margin-top:14px">Contact PLAYMAX support '+ICON.arrow+'</button></div></div></section>');}function vContact(){
+  const svg={Gmail:'<svg viewBox="0 0 24 24" width="26" height="26"><path fill="#4285F4" d="M3 6v12h4V9z"/><path fill="#34A853" d="M17 9v9h4V6z"/><path fill="#FBBC04" d="m3 6 2-2 7 5 7-5 2 2-9 7z"/><path fill="#EA4335" d="M3 6v3l9 7 9-7V6l-2-2-7 5-7-5z"/></svg>',Phone:'<svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="#174A8B" stroke-width="2"><path d="M7 3H4.8A1.8 1.8 0 0 0 3 4.8C3 13.7 10.3 21 19.2 21a1.8 1.8 0 0 0 1.8-1.8V17l-5-2-1.5 2a14.5 14.5 0 0 1-6.5-6.5l2-1.5-2-5Z"/></svg>',Facebook:'<svg viewBox="0 0 24 24" width="26" height="26"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.3c0-3 1.8-4.7 4.5-4.7 1.3 0 2.6.2 2.6.2v2.9h-1.5c-1.5 0-2 .9-2 1.9V12H17l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12"/></svg>',Instagram:'<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#C13584" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#C13584"/></svg>',WhatsApp:ICONS.whatsapp.replace(/22/g,'26'),WhatsAppOld:'<svg viewBox="0 0 24 24" width="26" height="26" fill="#25D366"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3 20l.9-4.7A8.5 8.5 0 1 1 20.5 11.7Zm-8.4-6a6.1 6.1 0 0 0-5.3 9.2l.4.7-.5 2.3 2.4-.6.7.4a6.1 6.1 0 1 0 2.3-12Z"/><path fill="#fff" d="M9 8c.2-.5.5-.5.8-.5h.4c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4 0 .6.4.7 1 1.3 1.7 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.2 1.2-.8 1.6-.5.4-1.1.6-1.7.4-1-.2-2.2-.8-3.3-1.9-1-.9-1.7-2.1-1.9-3.1-.2-.7 0-1.3.4-1.8z"/></svg>',Telegram:ICONS.telegram.replace(/22/g,'26'),TelegramOld:'<svg viewBox="0 0 24 24" width="26" height="26" fill="#229ED9"><path d="m21.5 3.5-3.2 17c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.3L6 16.8l-4.9-1.5c-1.1-.3-1.1-1 .2-1.5L20.3 3c.9-.3 1.6.2 1.2.5z"/></svg>',TikTok:'<svg viewBox="0 0 24 24" width="26" height="26"><path fill="#25F4EE" d="M19.6 7.2a6.8 6.8 0 0 1-4.1-2.1V16a5.6 5.6 0 1 1-5-5.6v3a2.6 2.6 0 1 0 2 2.5V2h3a6.1 6.1 0 0 0 4.1 3.6z"/><path fill="#FE2C55" d="M18.1 8.2a7 7 0 0 1-2.6-1.3V16a5.6 5.6 0 1 1-5-5.6v3a2.6 2.6 0 1 0 2 2.5V2h1.6a6.3 6.3 0 0 0 4 3.6z"/><path fill="#111" d="M17 7.5a6.8 6.8 0 0 1-2.1-1.8V16a5.6 5.6 0 1 1-5-5.6v2.1a3.5 3.5 0 1 0 2 3.1V2h2.2a6.2 6.2 0 0 0 2.9 3.6z"/></svg>'};
+  const channels=[['Gmail',CONTACT.email,'var(--tint-gold)','mailto:'+CONTACT.email],['Phone',CONTACT.phone,'var(--tint-sky)','tel:'+CONTACT.phoneRaw],['WhatsApp',CONTACT.phone,'#E9F9EF',CONTACT.whatsapp],['Telegram',CONTACT.phone,'#E8F6FC',CONTACT.telegram],['Facebook','PLAYMAX page','var(--tint-sky)',CONTACT.facebook],['Instagram',CONTACT.instagramHandle,'var(--tint-pink)',CONTACT.instagram],['TikTok',CONTACT.tiktokHandle,'var(--cream)',CONTACT.tiktok]];
+  const cards=channels.map(([name,value,bg,href])=>'<article class="chan"><span class="ic" style="background:'+bg+'">'+svg[name]+'</span><span class="val"'+(/^[+\d@]/.test(value)?' dir="ltr"':'')+'>'+esc(value)+'</span>'+(href?'<a class="btn sm ghost" href="'+href+'"'+(name==='Phone'||name==='Gmail'?'':' target="_blank" rel="noopener"')+'>Open '+ICON.arrow+'</a>':'<span class="muted" style="font-size:12px;font-weight:700">Send us the account link when ready</span>')+'</article>').join('');
+  return '<section class="band" style="--t:var(--tint-gold)"><div class="wrap">'+crumb([{label:'PLAYMAX',go:'home'},{label:t('contact')}])+'<h1>Let’s build your arena.</h1><p style="margin-top:10px;font-size:18px;color:var(--ink-2)">Questions, quotes, delivery or service — choose a channel.</p></div></section><section class="sec" style="padding-top:30px"><div class="wrap"><div class="cards3">'+cards+'</div><div class="two" style="padding-block:40px 0"><form class="card" data-act="contactSend" id="contactForm" style="display:flex;flex-direction:column;gap:14px"><h2 style="font-size:26px">Send us a message</h2><div class="grid2"><label class="field">Full name<input class="input" id="cName" required autocomplete="name" value="'+esc(S.user?S.user.name:'')+'"></label><label class="field">Phone or email<input class="input" id="cContact" required dir="ltr" value="'+esc(S.user?(S.user.contact||S.user.phone||S.user.email||''):'')+'"></label><label class="field full">Topic<select class="input" id="cTopic"><option>Buying a machine</option><option>Renting for an event</option><option>Delivery &amp; installation</option><option>Service &amp; spare parts</option><option>Wholesale prices</option></select></label><label class="field full">Message<textarea class="input" id="cMsg" required placeholder="Tell us what you need…"></textarea></label></div><div class="sendrow"><button type="button" class="btn wa" data-act="sendMsg" data-via="wa">'+ICONS.whatsapp+' WhatsApp</button><button type="button" class="btn tg" data-act="sendMsg" data-via="tg">'+ICONS.telegram+' Telegram</button></div></form><div class="wsale"><div class="glow"></div><span class="pill">Order now</span><img src="assets/wholesale.webp" alt="PLAYMAX boxing machines"><h3>Wholesale prices</h3><p>Ordering several machines? Contact us now to know the wholesale price.</p><div class="sendrow"><a class="btn wa" href="'+CONTACT.whatsapp+'" target="_blank" rel="noopener">'+ICONS.whatsapp+' WhatsApp</a><a class="btn tg" href="'+CONTACT.telegram+'" target="_blank" rel="noopener">'+ICONS.telegram+' Telegram</a></div></div></div></div></section>';
+}
+function lineTotal(l){return prod(l.pid).price*l.qty;}
+function vCart(){
+  if(!S.cart.length) return '<div class="wrap"><div class="empty" style="padding-block:90px"><img src="assets/p10.webp" alt="" style="height:180px"><h2>Your bag is empty</h2><p class="muted">Pick a machine — it will wait here.</p><button class="btn" data-go="store">'+esc(t('shopNow'))+' '+ICON.arrow+'</button></div></div>';
+  const sub=S.cart.reduce((a,l)=>a+lineTotal(l),0), n=S.cart.reduce((a,l)=>a+l.qty,0), ship=shipFee(), inst=S.installOn?S.install*n:0;
+  const lines=S.cart.map((l,i)=>{const p=prod(l.pid),c=cat(p.cat);const colors=canChooseColor(p)?'<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span style="font-size:13px;font-weight:800">Color</span>'+COLORS.map((x,j)=>'<button class="sw" data-act="lcolor" data-l="'+i+'" data-i="'+j+'" aria-pressed="'+(l.color===j)+'" aria-label="'+esc(colName(j))+'" style="--h:'+x.hex+';min-width:0"><i style="width:28px;height:28px"></i></button>').join('')+'<span class="muted" style="font-size:13px;font-weight:700">'+(l.color==null?'Original':esc(colName(l.color)))+'</span></div>':'';return '<div class="line" style="--t:'+c.tint+'"><button class="im" data-go="p:'+p.id+'" style="border:0;cursor:pointer" aria-label="Open '+esc(p.model)+'">'+pimg(p,'cimg',l.color)+'</button><div style="display:flex;flex-direction:column;gap:10px;min-width:0"><div style="display:flex;justify-content:space-between;gap:10px"><div><span class="model" style="font-size:12px;font-weight:800;color:'+c.color+'">'+esc(p.model)+(l.rent?' · RENTAL':'')+'</span><div style="font:800 18px var(--display)">'+esc(p.name)+'</div></div><strong class="num" style="font:800 20px var(--display)">'+money(lineTotal(l))+'</strong></div>'+colors+'<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><div class="qty"><button data-act="lq" data-l="'+i+'" data-d="-1" aria-label="Fewer">−</button><span class="num">'+l.qty+'</span><button data-act="lq" data-l="'+i+'" data-d="1" aria-label="More">+</button></div><span class="muted num" style="font-size:13px;font-weight:700">'+money(p.price)+' each</span><button class="btn sm ghost" data-act="lrm" data-l="'+i+'" style="margin-inline-start:auto">Remove</button></div><label class="field">Details for this machine<textarea class="input" data-act="lnote" data-l="'+i+'" style="min-height:64px" placeholder="Branding, coin type, voltage, prizes, event date…">'+esc(l.note||'')+'</textarea></label></div></div>';}).join('');
+  return '<div class="wrap"><div style="padding-top:22px">'+crumb([{label:'PLAYMAX',go:'home'},{label:t('bag')}])+'</div><div class="two"><div style="display:flex;flex-direction:column;gap:14px"><h1 style="font-size:clamp(28px,3.6vw,42px)">'+esc(t('bag'))+' <span style="color:var(--red)" class="num">('+n+')</span></h1>'+lines+'</div><aside class="sum"><div class="card" style="display:flex;flex-direction:column;gap:12px"><h2 style="font-size:22px">Order summary</h2><div class="sumrow"><span>Machines</span><span class="num">'+money(sub)+'</span></div><label class="field">Deliver to<select class="input" id="cartCountry">'+S.rates.map(r=>'<option value="'+esc(r.country)+'"'+(r.country===S.country?' selected':'')+'>'+esc(r.country)+'</option>').join('')+'</select></label><div class="sumrow"><span>Shipping</span><span class="num">'+money(ship)+'</span></div><div class="toggle"><span>Installation &amp; setup <span class="muted num">('+money(S.install)+' each)</span></span><button class="switch" role="switch" aria-checked="'+S.installOn+'" aria-label="Installation" data-act="inst"></button></div><div class="total"><span style="font-weight:800">Estimated total</span><b class="num">'+money(sub+ship+inst)+'</b></div><p class="muted" style="font-size:12px;font-weight:600">One delivery price for the whole order. Our team confirms before dispatch.</p><button class="btn block" data-go="checkout">'+esc(t('checkout'))+' '+ICON.arrow+'</button></div></aside></div></div>';
+}
+function orderTotal(){const sub=S.cart.reduce((a,l)=>a+lineTotal(l),0), n=S.cart.reduce((a,l)=>a+l.qty,0); return sub+shipFee()+(S.installOn?S.install*n:0);}
+function vCheckout(){ if(!S.cart.length) return vCart(); const u=S.user||{};
+  const total=orderTotal();
+  return '<div class="wrap"><div style="padding-top:22px">'+crumb([{label:t('bag'),go:'cart'},{label:t('checkout')}])+'</div><div class="two"><form class="card" id="orderForm" data-act="noop" style="display:flex;flex-direction:column;gap:16px"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><h1 style="font-size:28px">Delivery details</h1>'+(S.user?'<span class="pill" style="background:#E3F7EA;color:#11683A">Filled from your account</span>':'<button type="button" class="btn sm ghost" data-go="account">Sign in to autofill</button>')+'</div><div class="grid2"><label class="field">Full name<input class="input" id="oName" required autocomplete="name" value="'+esc(u.name||'')+'"></label><label class="field">Phone / WhatsApp<input class="input" id="oPhone" type="tel" required dir="ltr" autocomplete="tel" placeholder="+998 90 123 45 67" value="'+esc(u.phone||(u.contact&&!u.contact.includes('@')?u.contact:'')||'')+'"></label><label class="field">Email (optional)<input class="input" id="oEmail" type="email" dir="ltr" autocomplete="email" placeholder="name@gmail.com" value="'+esc(u.email||'')+'"></label><label class="field">Preferred contact<select class="input" id="oPref"><option value="wa">WhatsApp</option><option value="tg">Telegram</option><option value="call">Phone call</option><option value="mail">Email</option></select></label><label class="field">Country<select class="input" id="oCountry">'+S.rates.map(r=>'<option value="'+esc(r.country)+'"'+(r.country===S.country?' selected':'')+'>'+esc(r.country)+'</option>').join('')+'</select></label><label class="field">City<input class="input" id="oCity" required autocomplete="address-level2" value="'+esc(u.city||'')+'"></label><label class="field full">Address<input class="input" id="oAddr" autocomplete="street-address" placeholder="Street, building, landmark"></label><label class="field full">Message for our team <span class="muted">(optional)</span><textarea class="input" id="oMsg" placeholder="Best time to call, site access, opening date…"></textarea></label></div><h2 style="font-size:22px">Send your order</h2><p class="muted" style="font-weight:600;margin-top:-8px">Choose where to send it. Your order form opens with all the details and the machine photos.</p><div class="sendrow"><button type="button" class="btn wa" data-act="sendOrder" data-via="wa">'+ICONS.whatsapp+' WhatsApp</button><button type="button" class="btn tg" data-act="sendOrder" data-via="tg">'+ICONS.telegram+' Telegram</button></div></form><aside class="sum"><div class="card" style="display:flex;flex-direction:column;gap:10px"><h2 style="font-size:20px">In your bag</h2>'+S.cart.map(l=>{const p=prod(l.pid); return '<div style="display:flex;gap:12px;align-items:center"><img src="'+colorSrc(p,l.color)+'" alt="" style="width:46px;height:56px;object-fit:contain;border-radius:10px;background:var(--cream)"><span style="flex:1;font-weight:700;font-size:14px">'+esc(p.model)+' × '+l.qty+(l.color!=null?'<br><span class="muted">'+esc(colName(l.color))+'</span>':'')+'</span><b class="num">'+money(lineTotal(l))+'</b></div>';}).join('')+'<div class="sumrow"><span>Shipping</span><span class="num" id="coShip">'+money(shipFee())+'</span></div><div class="total"><span style="font-weight:800">Total</span><b class="num" id="coTotal">'+money(total)+'</b></div></div></aside></div></div>';
+}
+function vDone(id){const o=S.orders.find(x=>x.id===id); if(!o) return vCart(); const wa=o.via==='wa';
+  return '<div class="wrap"><div class="empty" style="padding-block:80px"><img src="assets/logo-circle.png" alt="" style="width:140px;border-radius:50%;background:#fff;box-shadow:var(--shadow)"><span class="eyebrow">Order ready</span><h1 style="font-size:clamp(28px,4vw,46px)">Thank you!</h1><p style="font-size:18px;color:var(--ink-2);max-width:560px">'+(wa?'Your order opened in WhatsApp. Press Send there to deliver it to PLAYMAX.':'We copied your order. In the Telegram chat, paste it and press Send.')+'</p><p class="num" style="font-weight:800">'+esc(o.id)+' · '+money(o.total)+'</p><div class="sendrow" style="width:min(520px,100%)"><button class="btn wa" data-act="resend" data-id="'+o.id+'" data-via="wa">'+ICONS.whatsapp+' WhatsApp</button><button class="btn tg" data-act="resend" data-id="'+o.id+'" data-via="tg">'+ICONS.telegram+' Telegram</button></div><div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center"><button class="btn ghost" data-act="copyOrder" data-id="'+o.id+'">'+ICON.copy+' Copy order</button><button class="btn" data-go="store">Keep shopping</button></div></div></div>';
+}
+function vAccount(){
+  if(S.user){const u=S.user; const mine=S.orders;
+    return '<section class="band" style="--t:var(--tint-sky)"><div class="wrap"><span class="eyebrow" style="color:var(--blue)">My account</span><h1>Salaam, '+esc(u.name.split(' ')[0])+'.</h1></div></section><section class="sec" style="padding-top:30px"><div class="wrap two" style="padding:0"><div class="card" style="display:flex;flex-direction:column;gap:12px"><h2 style="font-size:22px">My orders</h2>'+(mine.length?mine.map(o=>'<div class="panel" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--cream)"><span><b class="num">'+o.id+'</b><br><span class="muted" style="font-size:13px;font-weight:700">'+o.items.map(i=>i.model+' × '+i.qty).join(', ')+'</span></span><span style="text-align:end"><b class="num">'+money(o.total)+'</b><br><span class="pill" style="background:var(--tint-gold);color:#8A5A00">'+esc(o.status)+'</span></span></div>').join(''):'<p class="muted">No orders yet.</p>')+'</div><div class="card" style="display:flex;flex-direction:column;gap:10px"><h2 style="font-size:22px">Saved details</h2><p><b>'+esc(u.name)+'</b><br><span class="muted"><span dir="ltr">'+esc(u.contact||[u.email,u.phone].filter(x=>x&&x!=='—').join(' · '))+'</span><br>'+'<span data-no-translate>'+esc(u.city||'')+'</span>'+(u.country?', '+esc(PM.translateText(u.country,S.lang)):'')+'</span></p>'+(u.note?'<p class="panel" style="background:var(--cream);font-size:14px">'+esc(u.note)+'</p>':'')+'<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn sm ghost" data-act="signOut">Sign out</button></div></div></div></section>';}
+  const reg=S.acctMode==='register';
+  return '<section class="sec" style="padding-top:36px"><div class="wrap two" style="padding:0;align-items:stretch"><div class="card" style="background:linear-gradient(160deg,var(--sky),var(--blue));color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:20px;overflow:hidden;position:relative;min-height:420px"><div><span class="eyebrow" style="color:var(--gold)">PLAYMAX account</span><h1 style="font-size:clamp(30px,3.6vw,46px);margin-top:12px">Order once.<br>Reorder in one tap.</h1><p style="margin-top:14px;font-weight:600;opacity:.9">Optional. Your name and contact details are saved for the next order.</p></div><div style="display:flex;align-items:flex-end;gap:12px;height:200px"><img src="assets/p01.webp" alt="" style="height:100%;width:auto"><img src="assets/p10.webp" alt="" style="height:86%;width:auto"><img src="assets/p29.webp" alt="" style="height:80%;width:auto"></div></div><div class="card" style="display:flex;flex-direction:column;gap:16px"><div class="modes" role="tablist" style="align-self:stretch;display:grid;grid-template-columns:1fr 1fr;background:var(--cream)"><button role="tab" data-act="amode" data-m="login" aria-selected="'+!reg+'">'+esc(t('signIn'))+'</button><button role="tab" data-act="amode" data-m="register" aria-selected="'+reg+'">'+esc(t('createAccount'))+'</button></div><form data-act="'+(reg?'register':'login')+'" class="grid2">'+(reg?'<label class="field full">Full name<input class="input" id="aName" required autocomplete="name" placeholder="Your full name"></label><label class="field full">Phone or email<input class="input" id="aContact" required dir="ltr" autocomplete="username" placeholder="+998 90 123 45 67 / name@gmail.com"></label><label class="field">Country<select class="input" id="aCountry">'+S.rates.map(r=>'<option value="'+esc(r.country)+'"'+(r.country==='Uzbekistan'?' selected':'')+'>'+esc(r.country)+'</option>').join('')+'</select></label><label class="field">City<input class="input" id="aCity" autocomplete="address-level2" placeholder="Tashkent"></label><label class="field full">Password<input class="input" id="aPass" type="password" required minlength="8" autocomplete="new-password" placeholder="At least 8 characters"></label><button class="btn full">'+esc(t('createAccount'))+'</button>':'<label class="field full">Email or phone<input class="input" id="lId" required autocomplete="username" dir="ltr" placeholder="+998… / name@gmail.com"></label><label class="field full">Password<input class="input" id="lPass" type="password" required autocomplete="current-password"></label><button class="btn full">'+esc(t('signIn'))+'</button>')+'</form><button class="btn ghost" data-act="guest">'+esc(t('guest'))+'</button></div></div></section>';
+}
+function after(){
+  const r=S.route;
+  if(r.startsWith('p:')){const p=prod(r.slice(2)); const pv=S.pview; if(p&&p.model3d&&(pv.mode==='3d'||pv.mode==='size')) mount3d(p,pv.mode==='size');}
+  if(r==='studio') bindCompare();
+  if(r==='home') startHero();
+  if(r.startsWith('cat:')){const s=$('#sortSel'); if(s) s.value=S.catSort;}
+}
+function heroShow(i){const sl=$$('#hcar .hslide'); if(!sl.length) return; S.hero=(i+sl.length)%sl.length; sl.forEach((s,k)=>s.classList.toggle('on',k===S.hero)); $$('#hcar .hdots button').forEach((b,k)=>b.setAttribute('aria-current',k===S.hero));}
+function startHero(){clearInterval(heroTimer); const c=$('#hcar'); if(!c) return; heroShow(S.hero||0); let paused=false; c.addEventListener('pointerenter',()=>paused=true); c.addEventListener('pointerleave',()=>paused=false); heroTimer=setInterval(()=>{if(!paused&&document.visibilityState==='visible') heroShow(S.hero+1);},5000);
+  let x0=null; c.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;},{passive:true}); c.addEventListener('touchend',e=>{if(x0==null)return; const dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40) heroShow(S.hero+((dx<0)!==(document.dir==='rtl')?1:-1)); x0=null;},{passive:true});}
+function buildOrder(via){const n=S.cart.reduce((a,l)=>a+l.qty,0), sub=S.cart.reduce((a,l)=>a+lineTotal(l),0), inst=S.installOn?S.install*n:0;
+  return {id:'PM-'+(1043+S.orders.length),via,name:$('#oName').value.trim(),phone:$('#oPhone').value.trim(),email:$('#oEmail').value.trim(),pref:$('#oPref').value,contact:$('#oPhone').value.trim(),country:S.country,city:$('#oCity').value.trim(),addr:$('#oAddr').value.trim(),msg:$('#oMsg').value.trim(),sub,ship:shipFee(),inst,total:sub+shipFee()+inst,status:'New',at:Date.now(),
+    items:S.cart.map(l=>{const p=prod(l.pid); return {model:p.model,name:p.name,qty:l.qty,price:p.price,color:l.color==null?null:colName(l.color),note:l.note||'',rent:!!l.rent,photo:absUrl(colorSrc(p,l.color))};})};}
+function copySync(text){const t_=document.createElement('textarea'); t_.value=text; t_.setAttribute('readonly',''); t_.style.cssText='position:fixed;top:0;opacity:0'; document.body.appendChild(t_); t_.select(); try{document.execCommand('copy');}catch(e){} t_.remove();}
+function sendText(text,via){ if(via==='wa'){window.open(waLink(text),'_blank','noopener');} else {copySync(text); copyText(text).catch(()=>{}); toast('Order copied — paste it in the Telegram chat'); window.open(tgLink(),'_blank','noopener');}}
+function curColor(p){return S.pview.color==null?nativeColor(p):S.pview.color;}
+function mount3d(p,size){const box=$('#v3d'); if(!box) return; const tok=v3tok; const col=curColor(p);
+  import('./viewer3d.js').then(m=>m.mountViewer(box,{model:p.model3d,color:COLORS[col==null?3:col].id,human:size,dims:size})).then(api=>{
+    if(tok!==v3tok||!document.body.contains(box)){api.dispose();return;} V3=api; const l=$('#v3dLoad'); if(l) l.hidden=true; if(size) api.view('front');
+    if(!size){V3.setAuto(true);}
+  }).catch(err=>{console.error(err); const l=$('#v3dLoad'); if(l) l.innerHTML='<span>3D needs a browser with WebGL. Showing photos instead.</span><button class="btn sm" data-act="mode" data-m="photos">Photos</button>';});}
+function setProductColor(p,i){S.pview.color=i; const vw=p.views?S.pview.view:null;
+  const m=$('#mainImg'); if(m) m.src=colorSrc(p,i,vw);
+  $$('.thumbs img[data-view]').forEach(im=>im.src=colorSrc(p,i,im.dataset.view));
+  $$('[data-act=pcolor]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===i));
+  const n=$('#colName'); if(n) n.textContent=colName(i);
+  const si=$('#sizeImg'); if(si) si.src=colorSrc(p,i);
+  if(V3) V3.setColor(COLORS[i].id);}
+
+function bindCompare(){const box=$('#compare'); if(!box) return; let drag=false;
+  const set=(x)=>{const rc=box.getBoundingClientRect(); const v=Math.max(4,Math.min(96,(x-rc.left)/rc.width*100)); S.studio.cut=v; box.style.setProperty('--cut',v+'%');};
+  box.addEventListener('pointerdown',e=>{drag=true; box.setPointerCapture(e.pointerId); set(e.clientX);});
+  box.addEventListener('pointermove',e=>{if(drag) set(e.clientX);});
+  box.addEventListener('pointerup',()=>drag=false);
+  $('#cmpHandle').addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){S.studio.cut=Math.max(4,S.studio.cut-5);box.style.setProperty('--cut',S.studio.cut+'%');} if(e.key==='ArrowRight'){S.studio.cut=Math.min(96,S.studio.cut+5);box.style.setProperty('--cut',S.studio.cut+'%');}});
+}
+
+/* ---------- actions ---------- */
+function addToCart(pid,qty,color,rent){const p=prod(pid); if(!p)return; color=canChooseColor(p)&&Number.isInteger(color)?color:null; const ex=S.cart.find(l=>l.pid===pid&&l.color===color&&!!l.rent===!!rent); if(ex) ex.qty+=qty; else S.cart.push({pid,qty,color:color==null?null:color,note:'',rent:!!rent}); save(); updateBag(); toast(prod(pid).model+' added to your bag');}
+function lightbox(src,alt){const o=$('#overlay'); o.innerHTML='<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Photo"><img src="'+src+'" alt="'+esc(alt)+'" id="lbImg"><button class="icon-btn close" data-act="lbClose" aria-label="Close">'+ICON.x+'</button><span class="lbhint">Click to zoom · move to look around</span></div>';
+  const lb=$('#lb'),im=$('#lbImg'); let z=false;
+  lb.addEventListener('click',e=>{if(e.target.closest('[data-act=lbClose]'))return; z=!z; lb.classList.toggle('zoomed',z); if(!z) im.style.transform='none'; else move(e);});
+  const move=(e)=>{if(!z)return; const r=im.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width*100, y=(e.clientY-r.top)/r.height*100; im.style.transformOrigin=x+'% '+y+'%'; im.style.transform='scale(2.6)';};
+  lb.addEventListener('pointermove',move);
+  const esc_=(e)=>{if(e.key==='Escape'){o.innerHTML=''; document.removeEventListener('keydown',esc_);}}; document.addEventListener('keydown',esc_); $('[data-act=lbClose]',lb).focus();}
+function welcome(){ if(S.user) return; try{ if(sessionStorage.getItem('pmx-welcomed')) return; sessionStorage.setItem('pmx-welcomed','1'); }catch(e){}
+  $('#overlay').innerHTML='<div class="sheet-back" id="wb"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="wT"><div style="display:flex;gap:16px;align-items:center"><img class="logo-c" src="assets/logo-circle.png" alt=""><div><span class="eyebrow">PLAYMAX</span><h2 id="wT" style="font-size:24px;margin-top:6px">'+esc(t('welcome'))+'</h2></div></div><p style="margin-top:16px;color:var(--ink-2);font-weight:600">'+esc(t('welcomeText'))+'</p><div style="display:grid;gap:10px;margin-top:20px"><button class="btn" data-act="wReg">'+esc(t('createAccount'))+'</button><button class="btn ghost" data-act="wLogin">'+esc(t('signIn'))+'</button><button class="chip" style="justify-content:center;border:0" data-act="wClose">'+esc(t('guest'))+'</button></div></div></div>';}
+
+document.addEventListener('click',e=>{
+  const lb=e.target.closest('#langBtn'); const lm=$('#langMenu'); if(lb){lm.hidden=!lm.hidden; lb.setAttribute('aria-expanded',!lm.hidden); return;} if(!e.target.closest('#langMenu')) lm.hidden=true;
+  const a=e.target.closest('[data-act]'); const g=e.target.closest('[data-go]');
+  if(a&&a.tagName!=='FORM'&&!(a.tagName==='TEXTAREA')&&!(a.tagName==='INPUT')){ const act=a.dataset.act; const d=a.dataset;
+    if(act==='add'){e.stopPropagation(); addToCart(+d.id,1,null,false); return;}
+    if(act==='addP'){const p=prod(d.id); addToCart(p.id,S.pview.qty,canChooseColor(p)?S.pview.color:null,false); return;}
+    if(act==='rentP'){const p=prod(d.id); addToCart(+d.id,1,canChooseColor(p)?S.pview.color:null,true); toast('Rental request added — choose dates at checkout'); return;}
+    if(act==='mode'){S.pview.mode=d.m; render(); return;}
+    if(act==='gpick'){const m=$('#mainImg'); if(m) m.src=d.u; $$('[data-act=gpick]').forEach(b=>b.setAttribute('aria-pressed',b===a)); return;}
+    if(act==='zoom'){const im=$('#mainImg'); lightbox(im.src,im.alt); return;}
+    if(act==='pcolor'){setProductColor(prod(S.route.slice(2)),+d.i); return;}
+    if(act==='pview'){const p=prod(S.route.slice(2)); S.pview.view=d.v; $('#mainImg').src=colorSrc(p,curColor(p),d.v); $$('[data-act=pview]').forEach(b=>b.setAttribute('aria-pressed',b===a)); $('#vLabel').textContent=a.textContent; return;}
+    if(act==='v3view'){if(V3) V3.view(d.v); $$('[data-act=v3view]').forEach(b=>b.setAttribute('aria-pressed',b===a)); return;}
+    if(act==='v3human'||act==='v3dims'||act==='v3auto'){const on=a.getAttribute('aria-pressed')!=='true'; a.setAttribute('aria-pressed',on); if(V3){if(act==='v3human')V3.showHuman(on); if(act==='v3dims')V3.showDims(on); if(act==='v3auto')V3.setAuto(on);} return;}
+    if(act==='open3d'){go('p:'+d.id); S.pview.mode='3d'; render(); return;}
+    if(act==='setLang'){S.lang=d.l; $('#langMenu').hidden=true; save(); render(); return;}
+    if(act==='pq'){S.pview.qty=Math.max(1,Math.min(99,S.pview.qty+ +d.d)); $('#pQty').textContent=S.pview.qty; return;}
+    if(act==='teaserColor'){$$('[data-act=teaserColor]').forEach(b=>b.setAttribute('aria-pressed',b===a)); $('#teaserImg').src=colorSrc(prod(32),+d.i); return;}
+    if(act==='spick'){S.studio.pid=+d.id; render(); return;}
+    if(act==='scolor'){S.studio.color=+d.i; render(); return;}
+    if(act==='addStudio'){addToCart(S.studio.pid,1,S.studio.color,false); return;}
+    if(act==='lcolor'){S.cart[+d.l].color=+d.i; save(); render(); return;}
+    if(act==='lq'){const l=S.cart[+d.l]; l.qty=Math.max(1,Math.min(99,l.qty+ +d.d)); save(); render(); return;}
+    if(act==='lrm'){S.cart.splice(+d.l,1); save(); render(); return;}
+    if(act==='inst'){S.installOn=!S.installOn; render(); return;}
+    if(act==='heroGo'){if(S.route!=='home'){go('home');} heroShow(+d.i); clearInterval(heroTimer); startHero(); return;}
+    if(act==='sendOrder'){const f=$('#orderForm'); if(!f.reportValidity()) return; S.country=$('#oCountry').value; const o=buildOrder(d.via); sendText(orderMessage(o,S.lang),d.via); S.orders.unshift(o); S.cart=[]; save(); go('done:'+o.id); return;}
+    if(act==='resend'){const o=S.orders.find(x=>x.id===d.id); if(o) sendText(orderMessage(o,S.lang),d.via); return;}
+    if(act==='copyOrder'){const o=S.orders.find(x=>x.id===d.id); if(o) copyText(orderMessage(o,S.lang)).then(()=>toast('Copied')); return;}
+    if(act==='sendMsg'){const f=$('#contactForm'); if(!f.reportValidity()) return; const tr=s=>PM.translateText(s,S.lang); const text='✉️ PLAYMAX — '+tr($('#cTopic').value)+'\n\n'+$('#cMsg').value.trim()+'\n\n'+$('#cName').value.trim()+' · '+$('#cContact').value.trim(); sendText(text,d.via); return;}
+    if(act==='mkToggle'){S.mkForm=!S.mkForm; S.mkEdit=null; mkPhotos=[]; render(); if(S.mkForm) setTimeout(()=>{const t_=$('#mkTitle'); if(t_){t_.scrollIntoView({block:'center'}); t_.focus();}},50); return;}
+    if(act==='mkCancel'){S.mkForm=false; S.mkEdit=null; mkPhotos=[]; render(); return;}
+    if(act==='mkEditOpen'){const m=mkPostById(d.a,d.id); if(!m) return; S.mkForm=false; S.mkEdit={author:d.a,id:d.id}; S.mkAsk=null; mkPhotos=(m.photos||[]).map(r=>/^data:/.test(r)?{data:r}:{ref:r}); render(); setTimeout(()=>{const f=$('#mkForm'); if(f) f.scrollIntoView({block:'start',behavior:'smooth'});},50); return;}
+    if(act==='mkPhRm'){mkPhotos.splice(+d.i,1); mkDrawPrev(); return;}
+    if(act==='mkDelAsk'){S.mkAsk={type:'del',author:d.a,id:d.id}; render(); return;}
+    if(act==='mkBanAsk'){S.mkAsk={type:'ban',author:d.a,id:d.id}; render(); return;}
+    if(act==='mkAskNo'){S.mkAsk=null; render(); return;}
+    if(act==='mkReportAsk'){S.mkAsk={type:'report',author:d.a,id:d.id}; render(); return;}
+    if(act==='mkReportSend'){const m=mkPostById(d.a,d.id); a.disabled=true; PM.mk.report(m||{author:d.a,id:d.id},d.r).then(r=>{S.mkAsk=null; render(); toast(r===true?'Thank you. PLAYMAX will review this post.':mkErr(r));}); return;}
+    if(act==='mkRepDismiss'){PM.mk.dismissReport(d.rep,d.rid).then(r=>{render(); toast(r===true?'Report dismissed':mkErr(r));}); return;}
+    if(act==='mkDelYes'){a.disabled=true; PM.mk.remove(d.a,d.id).then(r=>{S.mkAsk=null; render(); toast(r===true?'Post deleted':mkErr(r));}); return;}
+    if(act==='mkBanYes'){a.disabled=true; PM.mk.ban(d.a,true,d.purge==='1').then(r=>{S.mkAsk=null; render(); toast(r===true?(d.purge==='1'?'User blocked and their posts deleted':'User blocked from posting'):mkErr(r));}); return;}
+    if(act==='mkUnban'){PM.mk.ban(d.a,false).then(r=>{render(); toast(r===true?'User unblocked':mkErr(r));}); return;}
+    if(act==='mkCat'){S.mkCat=d.c; render(); return;}
+    if(act==='amode'){S.acctMode=d.m; render(); return;}
+    if(act==='guest'){go('home'); toast('Browsing as a guest'); return;}
+    if(act==='signOut'){S.user=null; save(); render(); toast('Signed out'); return;}
+    if(act==='avis'){const p=prod(d.id); p.visible=!p.visible; save(); a.setAttribute('aria-checked',p.visible); toast(p.model+(p.visible?' is visible in the store':' is hidden from the store')); return;}
+    if(act==='copy'){const v=d.v; (navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(()=>toast('Copied: '+v)).catch(()=>toast(v)); return;}
+    if(act==='wClose'){$('#overlay').innerHTML=''; go('home'); toast('Browsing as a guest'); return;}
+    if(act==='wReg'){$('#overlay').innerHTML=''; S.acctMode='register'; go('account'); return;}
+    if(act==='wLogin'){$('#overlay').innerHTML=''; S.acctMode='login'; go('account'); return;}
+    if(act==='lbClose'){$('#overlay').innerHTML=''; return;}
+  }
+  if(g){ e.preventDefault(); go(g.dataset.go); }
+});
+document.addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ')&&e.target.matches('.pcard,[role=link]')){e.preventDefault(); go(e.target.dataset.go);} if(e.key==='Enter'&&e.target.id==='viewer'){$('#viewer').click();}});
+document.addEventListener('submit',e=>{const f=e.target; const act=f.dataset.act; if(!act) return; e.preventDefault();
+  if(act==='mkPost'){const v=id=>$('#'+id).value.trim(); const contacts={phone:v('mkPhone'),whatsapp:v('mkWa'),telegram:v('mkTg'),instagram:v('mkIg'),other:v('mkOther')};
+    if(!Object.values(contacts).some(Boolean)){toast('Add at least one way for buyers to contact you.'); $('#mkPhone').focus(); return;}
+    if(!mkPhotos.length){toast('Add at least one photo.'); return;}
+    const fields={title:v('mkTitle'),cat:v('mkCat'),cond:v('mkCond'),price:+v('mkPrice')||0,country:v('mkCountry'),city:v('mkCity'),desc:v('mkDesc'),seller:v('mkSeller'),contacts};
+    const btn=$('#mkSave'); if(btn){btn.disabled=true; btn.textContent='Saving…';}
+    const ed=S.mkEdit; const job=ed?PM.mk.edit(ed.author,ed.id,fields,mkPhotos):PM.mk.add(fields,mkPhotos.map(p=>p.data).filter(Boolean));
+    job.then(r=>{ if(r===true){S.mkForm=false; S.mkEdit=null; mkPhotos=[]; if(!ed) S.mkCat='all'; render(); toast(ed?'Changes saved':'Your post is published');} else {if(btn){btn.disabled=false; btn.textContent=ed?'Save changes':'Publish post';} toast(mkErr(r));} });
+    return; }
+  if(act==='register'){const c_=$('#aContact').value.trim(); S.user={name:$('#aName').value.trim(),contact:c_,email:c_.includes('@')?c_:'',phone:c_.includes('@')?'':c_,country:$('#aCountry').value,city:$('#aCity').value.trim()}; S.country=S.user.country; save(); toast('Account created — your details are saved'); go('account');}
+  if(act==='login'){const id=$('#lId').value.trim(); S.user={name:'PLAYMAX Customer',contact:id,email:id.includes('@')?id:'',phone:id.includes('@')?'':id,country:S.country,city:''}; save(); toast('Signed in'); go('account');}
+  if(act==='acontent'){S.content={headline:$('#acH').value,text:$('#acT').value,annc:null}; save(); renderNav(); toast('Published — the home page now shows your text');}
+});
+document.addEventListener('input',e=>{const el=e.target;
+  if(el.matches('[data-act=lnote]')){S.cart[+el.dataset.l].note=el.value; save();}
+  if(el.matches('input[type=range][data-k]')){const k=el.dataset.k; S.calc[k]=+el.value; const f={players:v=>v,price:v=>'$'+v,days:v=>v,costs:v=>money(v)}[k]; $('#o-'+k).textContent=f(S.calc[k]); $('#calcRes').innerHTML=calcResult();}
+  if(el.matches('[data-act=aprice]')){const p=prod(el.dataset.id); p.price=Math.max(0,+el.value||0); save();}
+  if(el.matches('[data-act=arate]')){S.rates[+el.dataset.i].rate=Math.max(0,+el.value||0); save();}
+  if(el.matches('[data-act=ainst]')){S.install=Math.max(0,+el.value||0); save();}
+});
+document.addEventListener('input',e=>{const el=e.target;if(!el.matches('input[type=range][data-k],input[data-calc]'))return;const k=el.dataset.k||el.dataset.calc,val=Number(el.value);if(!Number.isFinite(val))return;S.calc[k]=Math.max(Number(el.min),Math.min(Number(el.max),val));const field=document.querySelector('[data-calc="'+k+'"]'),slider=document.querySelector('input[data-k="'+k+'"]');if(field&&field!==el)field.value=S.calc[k];if(slider&&slider!==el)slider.value=S.calc[k];$('#o-'+k).textContent=k==='price'||k==='costs'?money(S.calc[k]):S.calc[k];$('#calcRes').innerHTML=calcResult();});document.addEventListener('change',e=>{const el=e.target;
+  if(el.id==='sortSel'){S.catSort=el.value; render();}
+  if(el.id==='pCountry'||el.id==='cartCountry'){S.country=el.value; save(); render();}
+  if(el.id==='calcM'){S.calc.pid=+el.value; $('#calcRes').innerHTML=calcResult();}
+  if(el.id==='oCountry'){S.country=el.value; save(); $('#coShip').textContent=money(shipFee()); $('#coTotal').textContent=money(orderTotal());}
+  if(el.id==='mkFiles'){const files=[...el.files].slice(0,4-mkPhotos.length); Promise.all(files.map(f=>compressImage(f))).then(list=>{mkPhotos=mkPhotos.concat(list.map(data=>({data}))).slice(0,4); mkDrawPrev();}).catch(()=>toast('This photo could not be read.')); el.value='';}
+});
+$('#menuBtn').addEventListener('click',()=>{const n=$('#nav'); const o=!n.classList.contains('open'); n.classList.toggle('open',o); $('#menuBtn').setAttribute('aria-expanded',o);});
+
+/* ---------- intro ---------- */
+function runIntro(force=false){const root=$('#intro-root');window.clearTimeout(window.pmxIntroTimer);root.hidden=false;document.body.style.overflow='hidden';root.innerHTML='<div class="pmx-video-intro" role="dialog" aria-label="PLAYMAX introduction"><iframe title="PLAYMAX animated introduction" src="assets/intro/index.html?embed=1&v=4" allow="autoplay"></iframe><button type="button" class="btn ghost sm" id="skipVideoIntro">Skip</button></div>';const end=()=>{if(root.hidden)return;store.set('web.brandIntroSeen',true);root.hidden=true;root.innerHTML='';document.body.style.overflow='';go('home');};$('#skipVideoIntro').onclick=end;window.pmxIntroTimer=window.setTimeout(end,13500);}
+$('#replay').addEventListener('click',()=>runIntro(true));const previewMode=new URLSearchParams(location.search).has('preview');render();if(!previewMode)runIntro();else go('home');
+})();
+</script>
+

@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PLAYMAX — Motion concept</title>
+  <style>
+    :root{--navy:#073d70;--blue:#1478c8;--cyan:#35c8ed;--red:#f2464e;--gold:#f5b631;--orange:#ff8b42;--cream:#fff5db}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;font-family:Arial,"Segoe UI",sans-serif;background:#f3f8fb;color:#153d60}
+    body{min-height:100vh;display:grid;place-items:center;padding:26px;background:radial-gradient(ellipse at 50% 0,#e2f7ff 0,transparent 56%),linear-gradient(145deg,#f8fbff,#fff8eb)}
+    .shell{width:min(1120px,100%)}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:13px;color:#5e7791;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+    .top strong{font-size:17px;color:#143e67;letter-spacing:.12em}
+    .ratio{border:1px solid #cbdfea;border-radius:999px;padding:7px 11px;background:#ffffffa8}
+    .screen{position:relative;isolation:isolate;overflow:hidden;width:100%;aspect-ratio:16/9;min-height:280px;border-radius:18px;border:1px solid #d6e7ef;background:#e4f5fb;box-shadow:0 28px 80px #365d7b26}
+    .sky{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 43%,#fff9e8 0,#eafaff 27%,transparent 67%),radial-gradient(ellipse at 8% 45%,#80ddf466,transparent 44%),radial-gradient(ellipse at 93% 37%,#ffca6555,transparent 39%),linear-gradient(180deg,#aeeafa 0%,#dff7fa 42%,#fff0d3 100%);animation:sky 10s ease both}
+    .sun-glow{position:absolute;width:61%;height:68%;left:19.5%;top:3%;border-radius:50%;background:radial-gradient(ellipse,#fffdf2f2 0,#ffebacaa 27%,#ffcd6550 48%,transparent 73%);filter:blur(3px);animation:sun 10s ease both}
+    .arch{position:absolute;left:50%;top:-48%;width:78%;height:125%;border:clamp(4px,.7vw,8px) solid #faffffcc;border-bottom:0;border-radius:50% 50% 0 0;transform:translateX(-50%);box-shadow:0 0 0 12px #54c6ea33,0 0 46px #53c5e653;opacity:.88}
+    .arch:before,.arch:after{content:"";position:absolute;inset:5% 7%;border:3px solid #24aedf80;border-bottom:0;border-radius:50% 50% 0 0}.arch:after{inset:11% 15%;border-color:#edb63bba}
+    .floor{position:absolute;left:-20%;right:-20%;bottom:-38%;height:78%;border-radius:50%;background:radial-gradient(ellipse at 50% 0,#fffef6 0,#fff2d3 28%,#d8f3f5 58%,#a9e1ed 100%);box-shadow:0 -12px 35px #72cbe550;animation:floor 10s ease both}
+    .floor-shine{position:absolute;left:20%;right:20%;bottom:7%;height:10%;border-radius:50%;background:linear-gradient(90deg,transparent,#fff9d9aa,#91dff277,#fff9d9aa,transparent);filter:blur(12px);opacity:.75}
+    .floaty{position:absolute;z-index:1;border-radius:50%;filter:blur(.3px);animation:float 4.8s ease-in-out infinite}
+    .bubble-a{width:24px;height:24px;left:15%;top:24%;background:radial-gradient(circle at 35% 30%,#fff,#63d7f2 62%,#2499d1);box-shadow:0 8px 20px #41bde340}
+    .bubble-b{width:14px;height:14px;right:19%;top:30%;background:radial-gradient(circle at 35% 30%,#fff,#ffc857 65%,#f08d37);animation-delay:-1.6s}
+    .bubble-c{width:10px;height:10px;left:27%;top:56%;background:#f76b70;animation-delay:-2.7s}
+    .sparkle{position:absolute;width:18px;height:18px;color:#f3af30;opacity:.75;animation:twinkle 2s ease-in-out infinite}
+    .sparkle:before,.sparkle:after{content:"";position:absolute;left:8px;top:0;width:2px;height:18px;border-radius:2px;background:currentColor}.sparkle:after{transform:rotate(90deg)}
+    .sp-a{top:22%;right:29%}.sp-b{bottom:27%;left:19%;transform:scale(.65);color:#36bde3;animation-delay:-.8s}.sp-c{top:37%;left:30%;transform:scale(.45);color:#ff7668;animation-delay:-1.2s}
+    .machine-scene{position:absolute;inset:0;z-index:2;display:grid;place-items:center;opacity:0;pointer-events:none}
+    .box-scene{animation:boxScene 10s ease both}.claw-scene{animation:clawScene 10s ease both}
+    .machine-svg{height:88%;width:auto;max-width:46%;overflow:visible;filter:drop-shadow(0 24px 21px #285e8655);transform-origin:50% 92%}
+    .box-machine{animation:machineEnter 10s cubic-bezier(.2,.7,.25,1) both}
+    .claw-machine{animation:machineEnterClaw 10s cubic-bezier(.2,.7,.25,1) both}
+    .cabinet-bob{animation:bob 1.6s ease-in-out infinite}
+    .bag-swing{transform-box:fill-box;transform-origin:50% 0%;animation:swing .85s ease-in-out infinite alternate}
+    .claw-grab{animation:clawDrop 1.8s ease-in-out infinite}
+    .prize{transform-box:fill-box;transform-origin:center;animation:prizeBounce 1.1s ease-in-out infinite alternate}
+    .prize:nth-of-type(2){animation-delay:-.35s}.prize:nth-of-type(3){animation-delay:-.7s}
+    .impact{position:absolute;left:50%;top:43%;width:12%;aspect-ratio:1;border-radius:50%;border:3px solid #fff8cf;box-shadow:0 0 0 12px #fff8cf55,0 0 48px #ff8d45;opacity:0;animation:impact 10s ease both}
+    .confetti{position:absolute;inset:10% 13%;pointer-events:none;opacity:0;animation:confetti 10s ease both}
+    .confetti i{position:absolute;width:9px;height:18px;border-radius:3px;background:var(--gold);animation:confettiFall 1.1s ease-in infinite}
+    .confetti i:nth-child(1){left:12%;top:16%;background:var(--cyan)}.confetti i:nth-child(2){left:32%;top:4%;background:var(--red);animation-delay:-.3s}.confetti i:nth-child(3){right:28%;top:12%;background:var(--orange);animation-delay:-.6s}.confetti i:nth-child(4){right:12%;top:25%;background:var(--blue);animation-delay:-.8s}.confetti i:nth-child(5){left:50%;top:20%;background:var(--gold);animation-delay:-.45s}
+    .brand-scene{position:absolute;inset:0;z-index:5;display:grid;place-items:center;opacity:0;animation:brandScene 10s ease both}
+    .brand-center{position:relative;width:min(57%,620px);aspect-ratio:654/146;filter:drop-shadow(0 10px 16px #5085a333)}
+    .letter{position:absolute;top:0;height:100%;overflow:hidden;opacity:0;transform:translate(var(--from-x),var(--from-y)) rotate(var(--turn)) scale(.42);animation:letterAssemble 10s cubic-bezier(.13,.76,.21,1) both}
+    .letter img{position:absolute;top:0;height:100%;width:100%;max-width:none}
+    .controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:13px;color:#6f8599;font-size:13px}
+    .controls button{border:1px solid #b8d7e6;background:#fff;color:#185280;border-radius:999px;padding:10px 17px;font-weight:750;cursor:pointer;box-shadow:0 5px 16px #32668812}
+    .controls button:hover{background:#e9f8fc;border-color:#7acfe5}
+    .controls .sound{background:#126eb1;border-color:#126eb1;color:#fff}
+    .controls .sound:hover{background:#0b5c99;border-color:#0b5c99}
+    .controls button:disabled{opacity:.65;cursor:default}
+    body.embedded{display:block;min-height:100dvh;padding:0;background:transparent;overflow:hidden}
+    body.embedded .shell{width:100%;height:100dvh}
+    body.embedded .top,body.embedded .controls{display:none}
+    body.embedded .screen{height:100dvh;min-height:0;aspect-ratio:auto;border:0;border-radius:0;box-shadow:none}
+    body.embedded .buttons{display:none}
+    .screen.reset *{animation:none!important}
+    @keyframes sky{0%,100%{filter:brightness(1)}35%,80%{filter:brightness(1.05)}}
+    @keyframes sun{0%,100%{opacity:.55;transform:scale(.92)}45%,75%{opacity:1;transform:scale(1.08)}}
+    @keyframes floor{0%,100%{filter:brightness(.98)}45%,75%{filter:brightness(1.08)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-17px)}}
+    @keyframes twinkle{0%,100%{opacity:.25;scale:.7}50%{opacity:1;scale:1.08}}
+    @keyframes boxScene{0%,8%{opacity:0}13%,40%{opacity:1}48%,100%{opacity:0}}
+    @keyframes clawScene{0%,42%{opacity:0}49%,69%{opacity:1}77%,100%{opacity:0}}
+    @keyframes machineEnter{0%,8%{opacity:0;transform:translateY(30%) scale(.78) rotate(-4deg)}14%{opacity:1}23%,40%{opacity:1;transform:translateY(0) scale(1) rotate(0)}47%,100%{opacity:0;transform:translateY(-4%) scale(1.05) rotate(2deg)}}
+    @keyframes machineEnterClaw{0%,42%{opacity:0;transform:translateX(18%) translateY(7%) scale(.82)}50%{opacity:1}57%,69%{opacity:1;transform:translateX(0) translateY(0) scale(1)}76%,100%{opacity:0;transform:translateX(-3%) translateY(-2%) scale(1.05)}}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    @keyframes swing{0%{transform:rotate(-12deg)}100%{transform:rotate(12deg)}}
+    @keyframes clawDrop{0%,32%,100%{transform:translateY(0)}53%{transform:translateY(48px)}71%{transform:translateY(0)}}
+    @keyframes prizeBounce{0%{transform:translateY(0) rotate(-2deg)}100%{transform:translateY(-8px) rotate(2deg)}}
+    @keyframes impact{0%,20%{opacity:0;transform:translate(-50%,-50%) scale(.2)}26%{opacity:.95;transform:translate(-50%,-50%) scale(1.8)}32%,100%{opacity:0;transform:translate(-50%,-50%) scale(2.6)}}
+    @keyframes confetti{0%,68%{opacity:0}73%,83%{opacity:1}92%,100%{opacity:0}}
+    @keyframes confettiFall{0%{transform:translateY(-12px) rotate(0)}100%{transform:translateY(100px) rotate(220deg)}}
+    @keyframes brandScene{0%,69%{opacity:0}73%,100%{opacity:1}}
+    @keyframes letterAssemble{0%,68%{opacity:0;transform:translate(var(--from-x),var(--from-y)) rotate(var(--turn)) scale(.42)}73%{opacity:1;transform:translate(0,0) rotate(0) scale(1.08)}78%,100%{opacity:1;transform:translate(0,0) rotate(0) scale(1)}}
+    @media(max-width:650px){body{padding:14px}.top{font-size:11px}.top strong{font-size:14px}.screen{min-height:0;border-radius:12px}.machine-svg{height:86%;max-width:58%}.brand-center{width:69%}.controls{font-size:11px}.controls button{padding:8px 12px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="top"><strong>PLAYMAX · MOTION CONCEPT</strong><span class="ratio">10 sec · 16:9</span></header>
+    <section class="screen" aria-label="PLAYMAX animated intro concept">
+      <div class="sky"></div><div class="sun-glow"></div><div class="arch"></div><div class="floor"><div class="floor-shine"></div></div>
+      <span class="floaty bubble-a"></span><span class="floaty bubble-b"></span><span class="floaty bubble-c"></span>
+      <i class="sparkle sp-a"></i><i class="sparkle sp-b"></i><i class="sparkle sp-c"></i>
+      <div class="machine-scene box-scene">
+        <svg class="machine-svg box-machine" viewBox="0 0 340 570" role="img" aria-label="Illustrated boxing arcade machine">
+          <defs>
+            <linearGradient id="boxSide" x1="0" x2="1"><stop stop-color="#0c5796"/><stop offset=".48" stop-color="#22bce6"/><stop offset="1" stop-color="#075292"/></linearGradient>
+            <linearGradient id="boxTop" x1="0" x2="0.9"><stop stop-color="#ef4b54"/><stop offset=".48" stop-color="#ff7757"/><stop offset="1" stop-color="#df3449"/></linearGradient>
+            <linearGradient id="boxFront" x1="0" x2="1"><stop stop-color="#126db1"/><stop offset=".5" stop-color="#1688ca"/><stop offset="1" stop-color="#0b589b"/></linearGradient>
+            <linearGradient id="screen" x1="0" x2="0" y2="1"><stop stop-color="#182c46"/><stop offset="1" stop-color="#08162b"/></linearGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <ellipse cx="170" cy="548" rx="132" ry="18" fill="#5b93b544"/>
+          <g class="cabinet-bob">
+            <path d="M74 78 266 78 293 113 282 165 58 165 47 113Z" fill="url(#boxSide)" stroke="#06416f" stroke-width="8"/>
+            <path d="M63 91Q170 51 277 91L264 139 76 139Z" fill="url(#boxTop)" stroke="#fff3dc" stroke-width="5"/>
+            <path d="M83 144H257V407H83Z" fill="url(#boxFront)" stroke="#073d70" stroke-width="8"/>
+            <path d="M95 154H245V177H95Z" fill="#f44752"/>
+            <rect x="106" y="190" width="128" height="61" rx="10" fill="url(#screen)" stroke="#71e4f1" stroke-width="4"/>
+            <text x="170" y="232" text-anchor="middle" font-size="33" font-family="Arial" font-weight="900" fill="#ff5a5f" filter="url(#glow)">008</text>
+            <circle cx="113" cy="271" r="6" fill="#ffe3a1"/><circle cx="227" cy="271" r="6" fill="#ffe3a1"/>
+            <path d="M113 281H227" stroke="#72e5f2" stroke-width="4" stroke-linecap="round"/>
+            <path d="M99 309Q170 273 241 309V388H99Z" fill="#0a518b" stroke="#73dcef" stroke-width="3"/>
+            <path d="M109 329Q170 301 231 329" fill="none" stroke="#f6b737" stroke-width="4"/>
+            <path d="M83 407H257L278 474H62Z" fill="#0c3e70" stroke="#063a66" stroke-width="8"/>
+            <path d="M63 426H277L289 473H51Z" fill="url(#boxSide)" stroke="#ffdf8a" stroke-width="5"/>
+            <path d="M74 476H266L281 510H59Z" fill="#143b5d" stroke="#092c4f" stroke-width="7"/>
+            <path d="M58 510H282V532Q282 542 270 542H70Q58 542 58 532Z" fill="#0b3158"/>
+            <path d="M95 490H245" stroke="#39d4ed" stroke-width="4" opacity=".9"/>
+            <path d="M86 104 99 113M254 113 267 104" stroke="#fff2c8" stroke-width="4" stroke-linecap="round"/>
+            <g class="bag-swing"><path d="M170 141V279" stroke="#e9f6ff" stroke-width="7"/><path d="M158 269Q170 258 182 269L191 309Q193 327 170 338Q147 327 149 309Z" fill="#182d49" stroke="#f24a53" stroke-width="7"/><path d="M156 300Q170 309 184 300" fill="none" stroke="#42d5eb" stroke-width="5"/></g>
+            <path d="M117 348Q170 320 223 348" fill="none" stroke="#ffe195" stroke-width="4" opacity=".75"/>
+            <circle cx="170" cy="365" r="7" fill="#f64c54"/>
+          </g>
+        </svg>
+      </div>
+      <div class="impact"></div>
+      <div class="machine-scene claw-scene">
+        <svg class="machine-svg claw-machine" viewBox="0 0 350 570" role="img" aria-label="Illustrated prize claw arcade machine">
+          <defs>
+            <linearGradient id="clawFrame" x1="0" x2="1"><stop stop-color="#1689c5"/><stop offset=".48" stop-color="#52d4e8"/><stop offset="1" stop-color="#0c5b9c"/></linearGradient>
+            <linearGradient id="clawBase" x1="0" x2="0" y2="1"><stop stop-color="#fff0ba"/><stop offset="1" stop-color="#f7be46"/></linearGradient>
+            <linearGradient id="glass" x1="0" x2="1"><stop stop-color="#e1faff" stop-opacity=".73"/><stop offset=".55" stop-color="#9de6f6" stop-opacity=".23"/><stop offset="1" stop-color="#fff" stop-opacity=".57"/></linearGradient>
+          </defs>
+          <ellipse cx="175" cy="548" rx="139" ry="18" fill="#5b93b544"/>
+          <g class="cabinet-bob">
+            <path d="M70 70Q70 54 87 54H263Q280 54 280 70V101H70Z" fill="#113e6a" stroke="#fff2d5" stroke-width="6"/>
+            <path d="M87 66H263V88H87Z" fill="#ffd14c"/>
+            <circle cx="105" cy="77" r="6" fill="#f55153"/><circle cx="245" cy="77" r="6" fill="#35c9ea"/>
+            <path d="M77 104H273V375H77Z" fill="url(#clawFrame)" stroke="#0a497e" stroke-width="8"/>
+            <rect x="94" y="120" width="162" height="197" rx="7" fill="url(#glass)" stroke="#ecffff" stroke-width="5"/>
+            <path d="M105 140H245" stroke="#fff" stroke-width="4" opacity=".8"/>
+            <path d="M109 163H241" stroke="#1384bd" stroke-width="6"/>
+            <g class="claw-grab"><path d="M174 132V174" stroke="#123d64" stroke-width="5"/><path d="M158 176Q174 166 190 176L185 197Q174 211 163 197Z" fill="#123d64"/><path d="M163 195 153 207M185 195 195 207" stroke="#123d64" stroke-width="5" stroke-linecap="round"/></g>
+            <g class="prize"><circle cx="116" cy="254" r="9" fill="#f65b67"/><circle cx="138" cy="254" r="9" fill="#f65b67"/><circle cx="127" cy="271" r="19" fill="#f65b67" stroke="#fff2d8" stroke-width="3"/><circle cx="121" cy="268" r="2.6" fill="#163c62"/><circle cx="133" cy="268" r="2.6" fill="#163c62"/><ellipse cx="127" cy="276" rx="5" ry="3.5" fill="#ffe1a7"/><path d="M121 282Q127 286 133 282" fill="none" stroke="#163c62" stroke-width="2"/></g>
+            <g class="prize"><path d="M159 259 159 246 171 254M177 254 190 246 188 262" fill="#f9bd45" stroke="#fff2d8" stroke-width="3"/><circle cx="174" cy="276" r="22" fill="#f9bd45" stroke="#fff2d8" stroke-width="3"/><circle cx="167" cy="272" r="2.7" fill="#163c62"/><circle cx="181" cy="272" r="2.7" fill="#163c62"/><path d="M168 284Q174 290 180 284" fill="none" stroke="#163c62" stroke-width="2.5"/></g>
+            <g class="prize"><circle cx="208" cy="253" r="8" fill="#44c7e3"/><circle cx="228" cy="253" r="8" fill="#44c7e3"/><circle cx="218" cy="269" r="18" fill="#44c7e3" stroke="#fff2d8" stroke-width="3"/><circle cx="212" cy="267" r="2.4" fill="#143e68"/><circle cx="224" cy="267" r="2.4" fill="#143e68"/><path d="M212 278Q218 283 224 278" fill="none" stroke="#143e68" stroke-width="2"/></g>
+            <path d="M92 324H258V371H92Z" fill="#f6f4e9" stroke="#fff" stroke-width="4"/>
+            <path d="M77 375H273V438H77Z" fill="url(#clawBase)" stroke="#0b497c" stroke-width="8"/>
+            <rect x="101" y="390" width="72" height="31" rx="9" fill="#fff8e4"/><circle cx="125" cy="405" r="7" fill="#f04d56"/><circle cx="148" cy="405" r="7" fill="#25bdda"/>
+            <path d="M184 405H248" stroke="#12578b" stroke-width="8" stroke-linecap="round"/><circle cx="218" cy="405" r="11" fill="#39c9e4" stroke="#fff" stroke-width="3"/>
+            <path d="M68 438H282L295 482H55Z" fill="#15426c" stroke="#0b3c68" stroke-width="8"/>
+            <path d="M56 482H294V522Q294 534 281 534H69Q56 534 56 522Z" fill="#164977" stroke="#f6c34b" stroke-width="5"/>
+            <path d="M95 501H255" stroke="#51d7e8" stroke-width="5"/>
+            <path d="M89 108 105 126M253 110 237 129" stroke="#fff" stroke-width="4" opacity=".8"/>
+          </g>
+        </svg>
+      </div>
+      <div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="brand-scene"><div class="brand-center" id="brand" aria-label="PLAYMAX"></div></div>
+    </section>
+    <footer class="controls"><span id="sound-state">Arcade energy · PLAYMAX sonic signature</span><span class="buttons"><button id="sound" class="sound" type="button">Play with sound ♫</button> <button id="replay" type="button">Replay ↻</button></span></footer>
+  </main>
+  <script>
+    const embedded = new URLSearchParams(location.search).has('embed');
+    if(embedded){document.body.classList.add('embedded');}
+    const logo = new Image(); logo.src = 'assets/playmax-wordmark.png';
+    logo.onload = () => {
+      const slices = [[0,80],[80,67],[147,82],[229,100],[329,105],[434,100],[534,120]];
+      const flights = [
+        ['-86vw','-66vh','-24deg'],['-64vw','67vh','22deg'],['-38vw','-78vh','-16deg'],
+        ['26vw','-82vh','17deg'],['47vw','74vh','-21deg'],['74vw','-61vh','26deg'],['89vw','36vh','-18deg']
+      ];
+      const root = document.getElementById('brand');
+      slices.forEach(([x,w], index) => {
+        const canvas = document.createElement('canvas'); canvas.width = w; canvas.height = 146;
+        canvas.getContext('2d').drawImage(logo, x, 0, w, 146, 0, 0, w, 146);
+        const piece = document.createElement('span'); piece.className = 'letter';
+        piece.style.left = `${x / 654 * 100}%`; piece.style.width = `${w / 654 * 100}%`;
+        piece.style.setProperty('--from-x', flights[index][0]); piece.style.setProperty('--from-y', flights[index][1]); piece.style.setProperty('--turn', flights[index][2]);
+        piece.style.animationDelay = `${index * .055}s`;
+        const image = document.createElement('img'); image.src = canvas.toDataURL('image/png'); piece.append(image); root.append(piece);
+      });
+    };
+    const screen = document.querySelector('.screen');
+    const soundButton = document.getElementById('sound');
+    const replayButton = document.getElementById('replay');
+    const soundState = document.getElementById('sound-state');
+    let audioContext = null;
+    let masterGain = null;
+    let scheduledNodes = [];
+    function restartVisuals(){
+      screen.classList.add('reset');
+      void screen.offsetWidth;
+      screen.classList.remove('reset');
+    }
+    function stopSound(){
+      if(!audioContext) return;
+      const oldContext=audioContext;
+      try{oldContext.close()}catch{}
+      audioContext=null; masterGain=null; scheduledNodes=[];
+    }
+    function playSoundtrack(){
+      const AudioEngine=window.AudioContext||window.webkitAudioContext;
+      if(!AudioEngine) throw new Error('Web Audio is not supported by this browser.');
+      const ctx=new AudioEngine(); audioContext=ctx;
+      const master=ctx.createGain(); masterGain=master;
+      master.gain.setValueAtTime(.0001,ctx.currentTime);
+      master.gain.exponentialRampToValueAtTime(.62,ctx.currentTime+.65);
+      master.connect(ctx.destination);
+      const start=ctx.currentTime+.06;
+      function tone(freq,at,duration,volume=.04,wave='sine',endFreq=null){
+        const osc=ctx.createOscillator(), env=ctx.createGain();
+        osc.type=wave; osc.frequency.setValueAtTime(freq,start+at);
+        if(endFreq) osc.frequency.exponentialRampToValueAtTime(endFreq,start+at+duration*.68);
+        env.gain.setValueAtTime(.0001,start+at);
+        env.gain.linearRampToValueAtTime(volume,start+at+Math.min(.12,duration*.2));
+        env.gain.setValueAtTime(volume,start+at+duration*.62);
+        env.gain.exponentialRampToValueAtTime(.0001,start+at+duration);
+        osc.connect(env); env.connect(master); osc.start(start+at); osc.stop(start+at+duration+.02);
+        scheduledNodes.push(osc);
+      }
+      function chord(notes,at,duration,volume=.014){notes.forEach((n,i)=>tone(n,at,duration,i===0?volume:volume*.72,'sine'));}
+      function chime(freq,at,duration=.65,volume=.045){
+        tone(freq,at,duration,volume,'sine');
+        tone(freq*2.01,at,duration*.48,volume*.22,'sine');
+      }
+      function whoosh(at,duration=.7,volume=.06){
+        const length=Math.ceil(ctx.sampleRate*duration), buffer=ctx.createBuffer(1,length,ctx.sampleRate), data=buffer.getChannelData(0);
+        for(let i=0;i<length;i++) data[i]=(Math.random()*2-1)*Math.pow(1-i/length,1.4);
+        const source=ctx.createBufferSource(), filter=ctx.createBiquadFilter(), env=ctx.createGain();
+        source.buffer=buffer; filter.type='lowpass'; filter.frequency.setValueAtTime(420,start+at); filter.frequency.exponentialRampToValueAtTime(3600,start+at+duration*.7);
+        env.gain.setValueAtTime(.0001,start+at); env.gain.linearRampToValueAtTime(volume,start+at+duration*.28); env.gain.exponentialRampToValueAtTime(.0001,start+at+duration);
+        source.connect(filter); filter.connect(env); env.connect(master); source.start(start+at); source.stop(start+at+duration);
+        scheduledNodes.push(source);
+      }
+      function kick(at,volume=.18){
+        const osc=ctx.createOscillator(),env=ctx.createGain(); osc.type='sine';
+        osc.frequency.setValueAtTime(132,start+at); osc.frequency.exponentialRampToValueAtTime(43,start+at+.19);
+        env.gain.setValueAtTime(.0001,start+at); env.gain.linearRampToValueAtTime(volume,start+at+.008); env.gain.exponentialRampToValueAtTime(.0001,start+at+.28);
+        osc.connect(env);env.connect(master);osc.start(start+at);osc.stop(start+at+.3);scheduledNodes.push(osc);
+      }
+      function snap(at,volume=.045){
+        const length=Math.ceil(ctx.sampleRate*.14),buffer=ctx.createBuffer(1,length,ctx.sampleRate),data=buffer.getChannelData(0);
+        for(let i=0;i<length;i++)data[i]=(Math.random()*2-1)*Math.pow(1-i/length,3);
+        const src=ctx.createBufferSource(),filter=ctx.createBiquadFilter(),env=ctx.createGain();src.buffer=buffer;filter.type='highpass';filter.frequency.value=1700;
+        env.gain.setValueAtTime(volume,start+at);env.gain.exponentialRampToValueAtTime(.0001,start+at+.14);
+        src.connect(filter);filter.connect(env);env.connect(master);src.start(start+at);src.stop(start+at+.15);scheduledNodes.push(src);
+      }
+      function pluck(freq,at,volume=.045){tone(freq,at,.28,volume,'triangle',freq*.985);tone(freq*2,at,.18,volume*.2,'sine');}
+      // A confident, bright arcade pulse; the beat supports the action without taking over.
+      chord([65.41,98,130.81],0,9.8,.019);
+      [0,.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5].forEach((t,i)=>{
+        if(i%2===0)kick(t,.105); else snap(t,.022);
+      });
+      // Machine entrances get a rising sweep, a solid impact, and a bright arcade sparkle.
+      whoosh(.58,.82,.095); kick(1.02,.22); chime(587.33,1.12,.72,.072); snap(1.08,.065);
+      kick(2.52,.24); tone(92,2.52,.42,.095,'sine',48); snap(2.55,.075);
+      pluck(392,3.05,.045); pluck(523.25,3.3,.05); pluck(659.25,3.55,.05);
+      whoosh(4.55,.9,.1); kick(4.92,.19); chime(783.99,5.02,.62,.082); chime(987.77,5.22,.72,.062); snap(5.12,.055);
+      pluck(523.25,5.9,.05); pluck(659.25,6.17,.055); pluck(783.99,6.44,.06);
+      // A bold but short four-note logo sting lands exactly as PLAYMAX locks into place.
+      whoosh(6.78,.98,.12); kick(7.02,.3); snap(7.04,.08);
+      [523.25,659.25,783.99,1046.5].forEach((f,i)=>{
+        chime(f,7.05+i*.2,1.2-i*.1,.105-i*.009);
+        tone(f*1.5,7.11+i*.2,.6,.026,'triangle');
+      });
+      kick(8.02,.13); chime(1318.51,8.08,.95,.058);
+      chord([261.63,329.63,392],8.15,1.45,.024);
+      master.gain.setValueAtTime(.62,start+9.25); master.gain.exponentialRampToValueAtTime(.0001,start+10.05);
+      return ctx.resume();
+    }
+    let audioStarted=false;
+    async function startAudio(){
+      if(audioStarted)return;
+      try{if(audioContext) await audioContext.resume(); else await playSoundtrack(); audioStarted=!!audioContext && audioContext.state==='running'; if(!audioStarted) throw new Error('Waiting for interaction');}
+      catch(error){soundState.textContent='Audio will start after your first tap.';}
+    }
+    if(embedded){
+      startAudio();
+      document.addEventListener('pointerdown',startAudio,{once:true,passive:true});
+      document.addEventListener('keydown',startAudio,{once:true});
+    }else{
+      soundButton.addEventListener('click',async()=>{
+        stopSound();restartVisuals();soundButton.disabled=true;soundState.textContent='Arcade energy · PLAYMAX sonic signature';
+        try{await playSoundtrack()}catch(error){soundState.textContent='Audio could not start in this browser.';soundButton.disabled=false;return;}
+        window.setTimeout(()=>{soundButton.disabled=false;soundState.textContent='Replay: arcade pulse + PLAYMAX signature.'},10500);
+      });
+      replayButton.addEventListener('click',()=>{stopSound();restartVisuals();soundState.textContent='Silent preview · press Play with sound for the new effects.'});
+    }
+  </script>
+</body>
+</html>
