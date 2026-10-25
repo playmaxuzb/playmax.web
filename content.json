@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-25T06:34:03.755Z",
+ "updated": "2026-10-25T06:39:53.947Z",
  "products": {},
  "added": [],
  "rates": [
@@ -26,10 +26,6 @@
   },
   {
    "country": "Turkmenistan",
-   "rate": 150
-  },
-  {
-   "country": "Amman",
    "rate": 150
   }
  ],
