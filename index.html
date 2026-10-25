@@ -964,7 +964,7 @@ $('#menuBtn').addEventListener('click',()=>{const n=$('#nav'); const o=!n.classL
 
 /* ---------- intro ---------- */
 function runIntro(force=false){const root=$('#intro-root');window.clearTimeout(window.pmxIntroTimer);root.hidden=false;document.body.style.overflow='hidden';root.innerHTML='<div class="pmx-video-intro" role="dialog" aria-label="PLAYMAX introduction"><iframe title="PLAYMAX animated introduction" src="assets/intro/index.html?embed=1&v=4" allow="autoplay"></iframe><button type="button" class="btn ghost sm" id="skipVideoIntro">Skip</button></div>';const end=()=>{if(root.hidden)return;store.set('web.brandIntroSeen',true);root.hidden=true;root.innerHTML='';document.body.style.overflow='';go('home');};$('#skipVideoIntro').onclick=end;window.pmxIntroTimer=window.setTimeout(end,13500);}
-$('#replay').addEventListener('click',()=>runIntro(true));const previewMode=new URLSearchParams(location.search).has('preview');render();if(!previewMode)runIntro();else go('home');
+$('#replay').addEventListener('click',()=>runIntro(true));const previewMode=new URLSearchParams(location.search).has('preview');const deepRoute=()=>{let h='';try{h=decodeURIComponent(location.hash||'');}catch(e){} const m=h.match(/^#\/?(privacy|contact|about|market|maintenance|store|calc|studio|p:\d+|page:[\w-]+)$/); return m?m[1]:'';};render();const dr=deepRoute();if(dr)go(dr);else if(!previewMode)runIntro();else go('home');window.addEventListener('hashchange',()=>{const r=deepRoute(); if(r) go(r);});
 })();
 </script>
 
