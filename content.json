@@ -1,1 +1,173 @@
-{"version":1}
+{
+ "version": 1,
+ "updated": "2026-10-25T06:34:03.755Z",
+ "products": {},
+ "added": [],
+ "rates": [
+  {
+   "country": "Uzbekistan",
+   "rate": 30
+  },
+  {
+   "country": "Afghanistan",
+   "rate": 150
+  },
+  {
+   "country": "Tajikistan",
+   "rate": 150
+  },
+  {
+   "country": "Kyrgyzstan",
+   "rate": 150
+  },
+  {
+   "country": "Kazakhstan",
+   "rate": 150
+  },
+  {
+   "country": "Turkmenistan",
+   "rate": 150
+  },
+  {
+   "country": "Amman",
+   "rate": 150
+  }
+ ],
+ "install": 50,
+ "contact": {
+  "phone": "+93 77 990 1111",
+  "whatsapp": "+93 77 990 1111",
+  "telegram": "+93 77 990 1111",
+  "email": "playmax.uzb@gmail.com",
+  "instagram": "https://www.instagram.com/playmax.af/",
+  "facebook": "https://www.facebook.com/profile.php?id=61595843930158",
+  "tiktok": "https://www.tiktok.com/@playmax.uz.af"
+ },
+ "news": [],
+ "promos": [
+  {
+   "id": "vision",
+   "theme": "blue",
+   "icon": "🎯",
+   "cta": "store",
+   "title": {
+    "en": "Our vision",
+    "fa": "چشم‌انداز ما",
+    "uz": "Bizning maqsadimiz",
+    "ru": "Наше видение"
+   },
+   "text": {
+    "en": "World-class arcade and family entertainment in every city of Central Asia — with fair prices, fast delivery and real service.",
+    "fa": "سرگرمی آرکید و خانوادگی در سطح جهانی در هر شهر آسیای میانه؛ با قیمت منصفانه، ارسال سریع و خدمات واقعی.",
+    "uz": "Markaziy Osiyoning har bir shahrida jahon darajasidagi arkada va oilaviy ko‘ngilochar o‘yinlar — adolatli narx, tez yetkazish va haqiqiy xizmat bilan.",
+    "ru": "Аркадные и семейные развлечения мирового уровня в каждом городе Центральной Азии — с честными ценами, быстрой доставкой и настоящим сервисом."
+   },
+   "button": {
+    "en": "See the machines",
+    "fa": "دیدن دستگاه‌ها",
+    "uz": "Avtomatlarni ko‘rish",
+    "ru": "Смотреть автоматы"
+   }
+  },
+  {
+   "id": "offers",
+   "theme": "pink",
+   "icon": "🎁",
+   "cta": "tiktok",
+   "ctas": [
+    "tiktok",
+    "instagram"
+   ],
+   "title": {
+    "en": "New offers are coming",
+    "fa": "پیشنهادهای جدید در راه است",
+    "uz": "Yangi takliflar tez orada",
+    "ru": "Скоро новые предложения"
+   },
+   "text": {
+    "en": "New machines and seasonal discounts are on the way. Follow us so you don’t miss them.",
+    "fa": "دستگاه‌های جدید و تخفیف‌های فصلی در راه است. ما را دنبال کنید تا از دستشان ندهید.",
+    "uz": "Yangi avtomatlar va mavsumiy chegirmalar yo‘lda. O‘tkazib yubormaslik uchun bizni kuzatib boring.",
+    "ru": "Скоро новые автоматы и сезонные скидки. Подпишитесь, чтобы ничего не пропустить."
+   },
+   "button": {
+    "en": "Follow on TikTok",
+    "fa": "دنبال کردن در تیک‌تاک",
+    "uz": "TikTokda kuzatish",
+    "ru": "Подписаться в TikTok"
+   }
+  },
+  {
+   "id": "wholesale",
+   "theme": "navy",
+   "icon": "🏷️",
+   "cta": "wa",
+   "ctas": [
+    "wa",
+    "tg"
+   ],
+   "title": {
+    "en": "We sell wholesale",
+    "fa": "ما عمده می‌فروشیم",
+    "uz": "Ulgurji sotamiz",
+    "ru": "Продаём оптом"
+   },
+   "text": {
+    "en": "Opening a game zone or buying several machines? Contact us now for wholesale prices.",
+    "fa": "فضای بازی راه می‌اندازید یا چند دستگاه می‌خرید؟ همین حالا برای قیمت عمده با ما تماس بگیرید.",
+    "uz": "O‘yin zonasi ochyapsizmi yoki bir nechta avtomat olyapsizmi? Ulgurji narxlar uchun hoziroq bog‘laning.",
+    "ru": "Открываете игровую зону или берёте несколько автоматов? Свяжитесь с нами, чтобы узнать оптовые цены."
+   },
+   "button": {
+    "en": "WhatsApp",
+    "fa": "واتس‌اپ",
+    "uz": "WhatsApp",
+    "ru": "WhatsApp"
+   }
+  },
+  {
+   "id": "reviews",
+   "theme": "green",
+   "icon": "⭐",
+   "cta": "wa",
+   "ctas": [
+    "wa",
+    "tg"
+   ],
+   "title": {
+    "en": "Customer reviews",
+    "fa": "نظرات مشتریان",
+    "uz": "Mijozlar fikri",
+    "ru": "Отзывы клиентов"
+   },
+   "text": {
+    "en": "Bought or rented from PLAYMAX? Send us your feedback — real customer reviews will appear here.",
+    "fa": "از PLAYMAX خرید یا کرایه کرده‌اید؟ نظرتان را بفرستید؛ نظرات واقعی مشتریان اینجا نمایش داده می‌شود.",
+    "uz": "PLAYMAXdan sotib oldingizmi yoki ijaraga oldingizmi? Fikringizni yuboring — mijozlarning haqiqiy fikrlari shu yerda chiqadi.",
+    "ru": "Покупали или арендовали у PLAYMAX? Пришлите отзыв — здесь появятся настоящие отзывы клиентов."
+   },
+   "button": {
+    "en": "Send feedback",
+    "fa": "ارسال نظر",
+    "uz": "Fikr yuborish",
+    "ru": "Оставить отзыв"
+   }
+  }
+ ],
+ "hero": {
+  "title": {},
+  "text": {}
+ },
+ "firebase": {
+  "apiKey": "AIzaSyB2SXCF2Oz_pRercGcXXkwRNRNyUtjDKRc",
+  "projectId": "playmax-585"
+ },
+ "blockedWords": [],
+ "pages": [],
+ "guides": [],
+ "home": {
+  "order": [],
+  "hidden": [],
+  "blocks": []
+ }
+}
