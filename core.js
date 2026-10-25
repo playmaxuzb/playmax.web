@@ -300,6 +300,10 @@
     ["Thank you!", "سپاسگزاریم!", "Rahmat!", "Спасибо!"],
     ["Your order opened in WhatsApp. Press Send there to deliver it to PLAYMAX.", "سفارش شما در واتس‌اپ باز شد. آنجا دکمه ارسال را بزنید تا به PLAYMAX برسد.", "Buyurtmangiz WhatsApp’da ochildi. PLAYMAX’ga yetib borishi uchun u yerda «Yuborish»ni bosing.", "Заказ открылся в WhatsApp. Нажмите «Отправить», чтобы он дошёл до PLAYMAX."],
     ["We copied your order. In the Telegram chat, paste it and press Send.", "سفارش شما کپی شد. در گفتگوی تلگرام آن را بچسبانید و ارسال را بزنید.", "Buyurtmangiz nusxalandi. Telegram chatiga joylab, «Yuborish»ni bosing.", "Мы скопировали заказ. Вставьте его в чат Telegram и нажмите «Отправить»."],
+    ["Sending your order…", "در حال ارسال سفارش…", "Buyurtma yuborilmoqda…", "Отправляем заказ…"],
+    ["Order sent to PLAYMAX on Telegram ✓ We will contact you soon.", "سفارش در تلگرام برای PLAYMAX ارسال شد ✓ به‌زودی با شما تماس می‌گیریم.", "Buyurtma Telegram orqali PLAYMAXga yuborildi ✓ Tez orada siz bilan bog‘lanamiz.", "Заказ отправлен PLAYMAX в Telegram ✓ Мы скоро свяжемся с вами."],
+    ["Could not send automatically. Tap Telegram again to send it yourself.", "ارسال خودکار نشد. دوباره روی تلگرام بزنید تا خودتان بفرستید.", "Avtomatik yuborib bo‘lmadi. O‘zingiz yuborish uchun Telegram tugmasini yana bosing.", "Не удалось отправить автоматически. Нажмите Telegram ещё раз, чтобы отправить вручную."],
+    ["Your order is being sent to PLAYMAX on Telegram. We will contact you soon.", "سفارش شما در تلگرام برای PLAYMAX ارسال می‌شود. به‌زودی با شما تماس می‌گیریم.", "Buyurtmangiz Telegram orqali PLAYMAXga yuborilmoqda. Tez orada siz bilan bog‘lanamiz.", "Ваш заказ отправляется PLAYMAX в Telegram. Мы скоро свяжемся с вами."],
     ["Order copied — paste it in the Telegram chat", "سفارش کپی شد؛ آن را در گفتگوی تلگرام بچسبانید", "Buyurtma nusxalandi — uni Telegram chatiga joylang", "Заказ скопирован — вставьте его в чат Telegram"],
     ["Copy order", "کپی سفارش", "Buyurtmani nusxalash", "Скопировать заказ"],
     ["Copied", "کپی شد", "Nusxalandi", "Скопировано"],
@@ -669,6 +673,15 @@
 
   const waLink = (text) => CONTACT.whatsapp + '?text=' + encodeURIComponent(text);
   const tgLink = () => CONTACT.telegram;
+  // Direct Telegram delivery through the PLAYMAX order bot (a small Cloudflare Worker). Falls back to copy + open chat.
+  const BOT = { down: false };
+  function sendBot(text) {
+    if (!CONTACT.orderBot || typeof fetch !== 'function') return Promise.resolve(false);
+    const ctl = typeof AbortController === 'function' ? new AbortController() : null; const tm = setTimeout(() => ctl && ctl.abort(), 9000);
+    return fetch(CONTACT.orderBot, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify({ text: String(text || ''), page: location.host + location.pathname }), signal: ctl ? ctl.signal : undefined })
+      .then((r) => r.json().catch(() => ({})).then((j) => !!(r.ok && j && j.ok)))
+      .catch(() => false).then((ok) => { clearTimeout(tm); if (!ok) BOT.down = true; return ok; });
+  }
   function copyText(text) {
     try { if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text); } catch (e) { /* fall back */ }
     return new Promise((res) => { const t = document.createElement('textarea'); t.value = text; t.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (e) { /* ignore */ } t.remove(); res(); });
@@ -1210,6 +1223,7 @@
     if (ct.whatsapp) { const d = String(ct.whatsapp).replace(/\D/g, ''); if (d.length >= 7) CONTACT.whatsapp = 'https://wa.me/' + d; }
     if (ct.telegram) { const t = String(ct.telegram).trim(); CONTACT.telegram = /^https:\/\//.test(t) ? t : /^\+?\d[\d\s]+$/.test(t) ? 'https://t.me/+' + t.replace(/\D/g, '') : 'https://t.me/' + t.replace(/^@/, ''); }
     if (ct.email && /^\S+@\S+\.\S+$/.test(ct.email)) CONTACT.email = str(ct.email, 80);
+    if (ct.orderBot && /^https:\/\/[\w.-]+(\/[\w\-./]*)?$/.test(String(ct.orderBot).trim())) CONTACT.orderBot = String(ct.orderBot).trim().slice(0, 200);
     ['instagram', 'facebook', 'tiktok'].forEach((k) => { if (ct[k] && /^https:\/\//.test(ct[k])) CONTACT[k] = str(ct[k], 200); });
     if (ct.instagram) { const m = String(ct.instagram).match(/instagram\.com\/([^/?#]+)/); if (m) CONTACT.instagramHandle = '@' + m[1]; }
     if (ct.tiktok) { const m = String(ct.tiktok).match(/tiktok\.com\/(@[^/?#]+)/); if (m) CONTACT.tiktokHandle = m[1]; }
@@ -1402,5 +1416,5 @@
   const privacyTitle = (lang) => (PRIVACY[lang] || PRIVACY.en).title;
   const mk = { state: MK, init: mkInit, report: mkReport, dismissReport: mkDismissReport, badWords: mkBadWords, setActive: (fn) => { mkActive = fn; }, refresh: () => { if (mkDb && mkDb.refresh) mkDb.refresh(); }, on: (fn) => { mkSubs.add(fn); return () => mkSubs.delete(fn); }, add: mkAdd, edit: mkEdit, remove: mkRemove, ban: mkBan, img: mkImg, hydrate: mkHydrate, photoUrl: (post, ref) => (/^data:/.test(ref) ? ref : mkPhotoCache[post.author + '/' + ref] || '') };
 
-  window.PM = { CATS, PRODUCTS, COLORS, RATES, CONTACT, I18N, UI_PHRASES, translateText, localizeDOM, money, esc, store, heightMm, recolor, spin360, aiAnswer, playIntro, INTRO_CSS, colorSrc, nativeColor, FLAG, LANGS, ICONS, orderMessage, waLink, tgLink, copyText, market, compressImage, sellerLinks, NEWS, SETTINGS, applyContent, loadContent, watchContent, pickLang, safeUrl, addPhrase, mk, PROMOS, HERO, promoHtml, carousel, FIREBASE, firebaseAuth, firestoreDb, fsEnc, fsDec, privacyHtml, privacyTitle, PAGES, pageHtml, pageTitle, ctaHtml, GUIDES, guidesHtml, videoEmbed, GUIDE_CSS, HOME, HOME_KEYS, BLOCK_TYPES, BLOCK_THEMES, homeArrange, blockHtml, BLOCK_CSS, BLOCK_APP_CSS };
+  window.PM = { CATS, PRODUCTS, COLORS, RATES, CONTACT, I18N, UI_PHRASES, translateText, localizeDOM, money, esc, store, heightMm, recolor, spin360, aiAnswer, playIntro, INTRO_CSS, colorSrc, nativeColor, FLAG, LANGS, ICONS, orderMessage, waLink, tgLink, copyText, market, compressImage, sellerLinks, NEWS, SETTINGS, applyContent, loadContent, watchContent, pickLang, safeUrl, addPhrase, mk, PROMOS, HERO, promoHtml, carousel, FIREBASE, firebaseAuth, firestoreDb, fsEnc, fsDec, privacyHtml, privacyTitle, PAGES, pageHtml, pageTitle, ctaHtml, sendBot, BOT, GUIDES, guidesHtml, videoEmbed, GUIDE_CSS, HOME, HOME_KEYS, BLOCK_TYPES, BLOCK_THEMES, homeArrange, blockHtml, BLOCK_CSS, BLOCK_APP_CSS };
 })();
