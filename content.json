@@ -1,7 +1,11 @@
 {
  "version": 1,
- "updated": "2026-10-25T11:32:57.617Z",
- "products": {},
+ "updated": "2026-10-26T16:36:36.864Z",
+ "products": {
+  "1": {
+   "price": 1670
+  }
+ },
  "added": [],
  "rates": [
   {
@@ -38,7 +42,7 @@
   "instagram": "https://www.instagram.com/playmax.af/",
   "facebook": "https://www.facebook.com/profile.php?id=61595843930158",
   "tiktok": "https://www.tiktok.com/@playmax.uz.af",
-  "orderBot": "https://playmax-bot.playmax-uzb.workers.dev"
+  "orderBot": ""
  },
  "news": [],
  "promos": [
